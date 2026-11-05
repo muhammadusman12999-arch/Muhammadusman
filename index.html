@@ -6319,10 +6319,20 @@ footer .socials a:hover{color:#a69cff}
   const mq = matchMedia('(max-width:900px), (prefers-reduced-motion: reduce)');
   let dist = 0, raf = 0;
   const measure = () => {
-    if (mq.matches) { sec.classList.add('ux-static'); hs.style.height = ''; grid.style.transform = ''; return; }
-    sec.classList.remove('ux-static');
-    dist = Math.max(0, grid.scrollWidth - innerWidth);
     const st = hs.querySelector('.ux-hs-sticky');
+    const toStatic = () => { sec.classList.add('ux-static'); hs.style.height = ''; st.style.top = ''; grid.style.transform = ''; cards.forEach(c => { c.style.transform = ''; c.style.opacity = ''; }); };
+    if (mq.matches) { toStatic(); return; }
+    sec.classList.remove('ux-static');
+    /* size the preview to the space left on this screen, so it never collapses on short laptop windows */
+    sec.style.removeProperty('--ux-vis');
+    const vis = cards[0] && cards[0].querySelector('.visual');
+    if (vis) {
+      const free = innerHeight - 76 - (st.offsetHeight - vis.offsetHeight);
+      /* too little room to pin the row and still show the preview: use the normal swipeable row instead */
+      if (free < 190) { toStatic(); return; }
+      sec.style.setProperty('--ux-vis', Math.min(free, 320) + 'px');
+    }
+    dist = Math.max(0, grid.scrollWidth - innerWidth);
     const H = st.offsetHeight;
     st.style.top = Math.max(76, (innerHeight - H) / 2) + 'px';
     hs.style.height = (H + dist) + 'px';
@@ -6330,7 +6340,7 @@ footer .socials a:hover{color:#a69cff}
   };
   const update = () => {
     raf = 0;
-    if (mq.matches) return;
+    if (mq.matches || sec.classList.contains('ux-static')) return;
     const top = hs.getBoundingClientRect().top;
     const p = dist ? Math.min(1, Math.max(0, -top / dist)) : 0;
     grid.style.transform = `translate3d(${-p * dist}px,0,0)`;
@@ -6545,8 +6555,12 @@ footer .socials a:hover{color:#a69cff}
 #work.ux-h .project-info > p{margin:10px 0 12px!important}
 #work.ux-h .project-info .tags{display:none!important}
 .ux-hs-sub{margin-top:12px;max-width:560px;color:#625f7c;font-size:16px;line-height:1.6}
-#work.ux-h .work-card,#work.ux-h .work-card:nth-child(even){height:min(62vh,580px)!important}
-@media (max-height:820px) and (min-width:901px){#work.ux-h:not(.ux-static) .ux-hs-sticky{padding:24px 0!important}#work.ux-h .work-card,#work.ux-h .work-card:nth-child(even){height:min(58vh,540px)!important}#work.ux-h .section-top{margin-bottom:16px!important}#work.ux-h .ux-hs-bar{margin-top:18px}}
+/* Cards grow with their content; the preview always keeps a usable height, even on short laptop screens */
+#work.ux-h .work-card,#work.ux-h .work-card:nth-child(even){height:auto!important;min-height:min(62vh,580px)!important}
+#work.ux-h .work-card > .visual,#work.ux-h .work-card:nth-child(even) > .visual{min-height:clamp(210px,32vh,300px)!important}
+#work.ux-h:not(.ux-static) .work-card,#work.ux-h:not(.ux-static) .work-card:nth-child(even){min-height:0!important}
+#work.ux-h:not(.ux-static) .work-card > .visual,#work.ux-h:not(.ux-static) .work-card:nth-child(even) > .visual{flex:none!important;height:var(--ux-vis,300px)!important;min-height:0!important}
+@media (max-height:960px) and (min-width:901px){#work.ux-h:not(.ux-static) .ux-hs-sticky{padding:24px 0!important}#work.ux-h .work-card,#work.ux-h .work-card:nth-child(even){min-height:min(58vh,540px)!important}#work.ux-h .section-top{margin-bottom:16px!important}#work.ux-h .ux-hs-bar{margin-top:18px}}
 </style>
 <script id="ux-merge-problems-script">
 (() => {
