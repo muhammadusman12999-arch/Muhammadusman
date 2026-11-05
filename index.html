@@ -4064,7 +4064,7 @@ document.getElementById('year').textContent=new Date().getFullYear();
 
 
 <!-- Three.js toolkit scene -->
-<script src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/three@0.149.0/build/three.min.js"></script>
 <script>
 (function(){
   function initToolkit3D(){
@@ -6620,7 +6620,14 @@ document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(a => {
 #work.ux-h .work-card[data-name^="Nikhz"] .nikahz-phone{transition:transform .8s cubic-bezier(.16,1,.3,1),opacity .6s,filter .6s,box-shadow .6s!important}
 #work.ux-h .work-card[data-name^="Nikhz"] .nikahz-phone.dim{opacity:.55;filter:saturate(.6) blur(.5px);transform:translateY(10px) scale(.92)!important}
 #work.ux-h .work-card[data-name^="Nikhz"] .nikahz-phone.hero{transform:translateY(-14px) scale(1.14)!important;z-index:3;box-shadow:0 24px 50px rgba(236,72,153,.35)!important}
-@media (prefers-reduced-motion:reduce){.pv-glare,.pv-focus,.pv-cur{display:none}}
+/* Cross-browser fallbacks: older Safari needs the -webkit- blur, and browsers without color-mix() keep a plain glow */
+.pv-rec,.pv-bar{-webkit-backdrop-filter:blur(6px)}
+@supports not (color: color-mix(in srgb, red 50%, transparent)){
+  .pv-focus{box-shadow:0 0 0 9999px rgba(15,12,34,0),0 0 24px rgba(103,88,255,.55)}
+  .pv-focus.on{box-shadow:0 0 0 9999px rgba(15,12,34,.28),0 0 24px rgba(103,88,255,.55)}
+}
+/* Reduced motion: the preview still plays (it is the project demo), only the sweeping glare is dropped */
+@media (prefers-reduced-motion:reduce){.pv-glare{display:none}}
 </style>
 <script id="ux-proj-video-script">
 (() => {
@@ -6663,7 +6670,7 @@ document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(a => {
     document.querySelectorAll('#work .work-card').forEach((card, idx) => {
       if (card.dataset.pv) return; card.dataset.pv = '1';
       const name = (card.dataset.name || '').split(':')[0];
-      const p = { t: idx * 1.7 % D, playing: !reduce, visible: true, seg: -1, card };
+      const p = { t: idx * 1.7 % D, playing: true, visible: true, seg: -1, card, sec: -1 };
       if (name === 'Nikhz') {
         const vis = card.querySelector('.visual'), phones = [...card.querySelectorAll('.nikahz-phone')], wrap = card.querySelector('.nikahz-phones');
         vis.style.position = 'relative'; addBar(vis, p);
@@ -6677,7 +6684,7 @@ document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(a => {
             chips.forEach((c, j) => c.classList.toggle('pop', j === k % 2));
           }
           const sw = Math.sin(p.t / D * Math.PI * 2);
-          wrap.style.transform = `perspective(900px) rotateY(${sw * 10}deg) rotateX(4deg)`;
+          wrap.style.transform = reduce ? '' : `perspective(900px) rotateY(${sw * 10}deg) rotateX(4deg)`;
         };
         players.push(p); return;
       }
@@ -6694,7 +6701,7 @@ document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(a => {
         let i = 0; while (i < K.length - 2 && p.t >= K[i + 1][0]) i++;
         const a = K[i], b = K[i + 1], q = ease(Math.min(1, (p.t - a[0]) / (b[0] - a[0])));
         const L = j => a[j] + (b[j] - a[j]) * q;
-        win.style.transform = `rotateX(${L(1)}deg) rotateY(${L(2)}deg) scale(${L(3)})`;
+        win.style.transform = reduce ? '' : `rotateX(${L(1)}deg) rotateY(${L(2)}deg) scale(${L(3)})`;
         if (cfg.mode === 'scroll') {
           const max = Math.max(0, media.offsetHeight - scr.clientHeight);
           media.style.transformOrigin = '50% 0';
@@ -6719,16 +6726,20 @@ document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(a => {
     const loop = now => {
       const dt = Math.min(.1, (now - last) / 1000); last = now;
       players.forEach(p => {
-        if (p.playing && p.visible) p.t = (p.t + dt) % D;
-        if (p.visible || p.seg === -1) p.step();
+        /* only do work for previews on screen (plus one first frame for each) */
+        if (!p.visible && p.seg !== -1) return;
+        if (p.playing) p.t = (p.t + dt) % D;
+        p.step();
         p.bar.style.transform = `scaleX(${p.t / D})`;
-        p.tt.textContent = `0:${String(Math.floor(p.t)).padStart(2, '0')} / 0:13`;
+        const s = Math.floor(p.t);
+        if (s !== p.sec) { p.sec = s; p.tt.textContent = `0:${String(s).padStart(2, '0')} / 0:13`; }
       });
       requestAnimationFrame(loop);
     };
     requestAnimationFrame(loop);
   };
-  if (document.readyState === 'complete') setTimeout(setup, 100); else addEventListener('load', () => setTimeout(setup, 100));
+  /* start as soon as the page structure is ready, not after every image, font and CDN file has finished loading */
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', setup); else setup();
 })();
 </script>
 
