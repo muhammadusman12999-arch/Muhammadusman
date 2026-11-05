@@ -5126,6 +5126,12 @@ body.ux-scrolled .ux-top{opacity:1;transform:none}
 footer .socials a{position:relative}
 footer .socials a::after{content:"";position:absolute;left:0;right:0;bottom:-3px;height:1.5px;background:#6758ff;transform:scaleX(0);transform-origin:right;transition:transform .5s var(--ux-ease)}
 footer .socials a:hover::after{transform:scaleX(1);transform-origin:left}
+/* Footer: continue the dark CTA instead of leaving a white strip at the page end */
+footer{background:var(--ux-dark);color:#8f8aae;padding:0 0 calc(28px + env(safe-area-inset-bottom))}
+footer .footer{border-top:1px solid rgba(255,255,255,.1);padding-top:24px;align-items:center;gap:12px 24px;flex-wrap:wrap}
+footer .socials a{color:#d9d5f5}
+footer .socials a:hover{color:#a69cff}
+@media (max-width:760px){footer .footer{display:flex;flex-direction:column;align-items:flex-start}}
 
 /* Nav link hover pill */
 .nav-links a{position:relative;transition:color .3s}
@@ -5342,7 +5348,7 @@ footer .socials a:hover::after{transform:scaleX(1);transform-origin:left}
   };
 
   /* ---------- 5. Extra reveals ---------- */
-  const extra = $$('#design-explorations .de-card, .reference-stats > div, footer .footer > *');
+  const extra = $$('#design-explorations .de-card, .reference-stats > div');
   extra.forEach((el, i) => { if (!el.classList.contains('reveal')) { el.classList.add('ux-reveal'); el.style.setProperty('--d', `${(i % 4) * 90}ms`); } });
 
   const io = new IntersectionObserver(entries => entries.forEach(e => {
