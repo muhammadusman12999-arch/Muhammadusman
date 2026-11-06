@@ -4549,15 +4549,15 @@ footer .socials a:hover{color:#a69cff}
 @media (hover:none){#work .pv-bar{opacity:1;transform:none}#work .pv-btn{width:28px;height:28px}}
 </style>
 <style id="sr-fast-start">
-/* faster first three showreel scenes */
-.s-intro.on .orb i{animation-duration:1s;animation-delay:calc(var(--i)*.03s)}
-.s-intro.on .sr-k{animation:sr-fade .35s 0s forwards}
-.s-intro.on .role{animation:sr-track .6s cubic-bezier(.16,1,.3,1) .3s forwards}
-.s-intro.on .kt i{animation-duration:.45s;animation-delay:calc(.03s + var(--i)*.05s)}
-.s-mobile .lane.a{animation-duration:1.6s}.s-mobile .lane.b{animation-duration:1.6s}
-.s-dash.on .stack i{animation-duration:.55s;animation-delay:calc((4 - var(--i))*.06s)}
-.s-dash.on .stack{animation-duration:1.6s}
-.s-mobile.on .big,.s-dash.on .big{animation-duration:.45s;animation-delay:.1s}
+/* first three showreel scenes: 0.5s each */
+.s-intro.on .orb i{animation-duration:.5s;animation-delay:calc(var(--i)*.012s)}
+.s-intro.on .sr-k{animation:sr-fade .2s 0s forwards}
+.s-intro.on .role{animation:sr-track .3s cubic-bezier(.16,1,.3,1) .1s forwards}
+.s-intro.on .kt i{animation-duration:.28s;animation-delay:calc(var(--i)*.04s)}
+.s-mobile .lane.a{animation-duration:.6s}.s-mobile .lane.b{animation-duration:.6s}
+.s-dash.on .stack i{animation-duration:.3s;animation-delay:calc((4 - var(--i))*.025s)}
+.s-dash.on .stack{animation-duration:.6s}
+.s-mobile.on .big,.s-dash.on .big{animation-duration:.28s;animation-delay:.02s}
 </style>
 </head>
 <body>
@@ -4638,13 +4638,13 @@ footer .socials a:hover{color:#a69cff}
   <div class="sr-top"><span class="sr-live">Bē SHOWREEL</span><span class="t">50 designs · Mobile apps &amp; dashboards</span><span class="q">4K</span></div>
   <div class="sr" aria-hidden="true">
     <div class="sr-bg"></div>
-    <div class="sr-scene s-intro" data-d="1.4"><div class="orb"></div>
+    <div class="sr-scene s-intro" data-d="0.5"><div class="orb"></div>
       <div class="core"><span class="sr-k">Behance showreel · 2026</span>
         <h3 class="kt"><span><i style="--i:0">Muhammad</i></span> <span class="grad"><i style="--i:1" class="grad">Usman</i></span></h3>
         <div class="role">UI / UX DESIGNER</div></div></div>
-    <div class="sr-scene s-mobile" data-d="1.5"><div class="lane a"></div><div class="lane b"></div>
+    <div class="sr-scene s-mobile" data-d="0.5"><div class="lane a"></div><div class="lane b"></div>
       <div class="big"><b class="grad" data-to="34">0</b><span>Mobile apps</span><small>iOS · Android · Concepts</small></div></div>
-    <div class="sr-scene s-dash" data-d="1.5"><div class="stack"></div>
+    <div class="sr-scene s-dash" data-d="0.5"><div class="stack"></div>
       <div class="big"><b class="grad" data-to="16">0</b><span>Web dashboards</span><small>SaaS · Analytics · Admin</small></div></div>
     <!-- industry cuts generated -->
     <div class="sr-scene s-wall" data-d="2.6"><div class="cols"></div>
@@ -4704,7 +4704,7 @@ footer .socials a:hover{color:#a69cff}
   let t = 0, last = performance.now(), cur = -1, playing = true, visible = true;
   const count = sc => sc.querySelectorAll('[data-to]').forEach(b => {
     const to = +b.dataset.to, t0 = performance.now();
-    const f = now => { const p = Math.min((now - t0) / 550, 1); b.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1 && sc.classList.contains('on')) requestAnimationFrame(f); };
+    const f = now => { const p = Math.min((now - t0) / 320, 1); b.textContent = Math.round(to * (1 - Math.pow(1 - p, 3))); if (p < 1 && sc.classList.contains('on')) requestAnimationFrame(f); };
     requestAnimationFrame(f);
   });
   const show = i => {
