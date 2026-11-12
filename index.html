@@ -5360,6 +5360,149 @@ footer .socials a:hover{color:#a69cff}
 </section>
 
 
+<style id="kind-words-section">
+#kind-words{position:relative;padding:clamp(48px,6vw,80px) 0;overflow:hidden}
+#kind-words .kw-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:30px}
+#kind-words .kw-head h2{font-size:clamp(36px,4.4vw,56px);line-height:1.02;letter-spacing:-.06em}
+#kind-words .kw-head p{max-width:300px;font-size:13px;line-height:1.6;color:var(--muted)}
+#kind-words .kw-head a{display:inline-flex;gap:6px;margin-top:10px;font-size:12px;font-weight:700;color:var(--violet)}
+#kind-words .kw-head a:hover{text-decoration:underline}
+.kw-viewport{position:relative;overflow:hidden;padding:14px 0 22px;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
+.kw-track{display:flex;width:max-content}
+.kw-track.kw-run{animation:kw-slide var(--kw-dur,70s) linear infinite}
+.kw-viewport:hover .kw-track,.kw-viewport:focus-within .kw-track{animation-play-state:paused}
+@keyframes kw-slide{to{transform:translateX(-50%)}}
+.kw-card{position:relative;flex:0 0 auto;width:min(420px,82vw);margin-right:18px;padding:26px 26px 22px;border:1px solid var(--line);border-radius:22px;background:#fff;
+  display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(20,18,35,.04);
+  transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s cubic-bezier(.16,1,.3,1),border-color .5s}
+.kw-card:hover{transform:translateY(-5px);border-color:#d9d4ff;box-shadow:0 22px 50px rgba(103,88,255,.12)}
+.kw-card:before{content:"\201C";position:absolute;bottom:-46px;right:18px;font-family:Georgia,serif;font-size:92px;line-height:1;color:#6758ff;opacity:.09;transition:opacity .5s,transform .5s cubic-bezier(.16,1,.3,1)}
+.kw-card{overflow:hidden}.kw-card:hover:before{opacity:.2;transform:translateY(-3px) rotate(-4deg)}
+.kw-stars{display:flex;gap:3px;margin-bottom:14px;color:#ffc94a;font-size:13px;letter-spacing:1px}
+.kw-quote{flex:1;font-size:14px;line-height:1.7;color:#3b3b3b}
+.kw-quote p+p{margin-top:10px}
+.kw-person{display:flex;align-items:center;gap:12px;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--line)}
+.kw-avatar{flex:0 0 44px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:"Space Grotesk","Space Grotesk Fallback",sans-serif;font-weight:700;font-size:15px;color:#fff;background:var(--kw-c,linear-gradient(135deg,#6758ff,#a69cff))}
+.kw-person b{display:block;font-family:"Space Grotesk","Space Grotesk Fallback",sans-serif;font-size:15px;letter-spacing:-.02em;color:var(--ink)}
+.kw-person small{display:block;font-size:11px;line-height:1.45;color:var(--muted)}
+.kw-person em{display:block;font-style:normal;font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--violet);margin-top:3px}
+.kw-li{margin-left:auto;flex:0 0 22px;width:22px;height:22px;border-radius:5px;background:#0a66c2;color:#fff;display:grid;place-items:center;font:700 11px/1 Arial,sans-serif}
+@media (max-width:760px){
+  #kind-words .kw-head{display:block}
+  #kind-words .kw-head p{margin-top:12px}
+  .kw-card{padding:22px 20px 18px}
+  .kw-quote{font-size:13px}
+}
+@media (prefers-reduced-motion:reduce){
+  .kw-track.kw-run{animation:none}
+  .kw-viewport{overflow-x:auto;-webkit-mask-image:none;mask-image:none;scroll-snap-type:x mandatory}
+  .kw-card{scroll-snap-align:start}
+  .kw-card[aria-hidden="true"]{display:none}
+}
+</style>
+
+<section id="kind-words" aria-labelledby="kind-words-title">
+  <div class="container">
+    <div class="kw-head reveal">
+      <div>
+        <div class="kicker">Kind words</div>
+        <h2 id="kind-words-title">What people say<br><span>about working with me.</span></h2>
+      </div>
+      <div>
+        <p>Recommendations from founders, product managers and engineers I've worked with.</p>
+        <a href="https://www.linkedin.com/in/muhammad-usman-9ab493245/details/recommendations/" target="_blank" rel="noopener">Read them on LinkedIn ↗</a>
+      </div>
+    </div>
+  </div>
+
+  <div class="kw-viewport reveal">
+    <div class="kw-track">
+      <article class="kw-card">
+        <div class="kw-person">
+          <span class="kw-avatar" style="--kw-c:linear-gradient(135deg,#7ef0c1,#62c7ff)">HL</span>
+          <div><b>Helen Latifi</b><small>MD · Founder · HealthTech &amp; AI Entrepreneur</small><em>Owner</em></div>
+          <span class="kw-li" aria-label="LinkedIn recommendation">in</span>
+        </div>
+        <div class="kw-stars" aria-hidden="true">★★★★★</div>
+        <div class="kw-quote">
+          <p>I highly recommend M. Usman as a UX/UI Designer.</p>
+          <p>What truly stands out is Usman's ability to combine strong design skills with a deep understanding of the user experience. He has a great eye for detail and a talent for turning complex ideas and requirements into simple, intuitive, and user-friendly solutions.</p>
+        </div>
+      </article>
+
+      <article class="kw-card">
+        <div class="kw-person">
+          <span class="kw-avatar" style="--kw-c:linear-gradient(135deg,#6758ff,#62c7ff)">SB</span>
+          <div><b>Sajid Badi-uz-Zaman</b><small>Head of AI Department, TEO International</small><em>Same team</em></div>
+          <span class="kw-li" aria-label="LinkedIn recommendation">in</span>
+        </div>
+        <div class="kw-stars" aria-hidden="true">★★★★★</div>
+        <div class="kw-quote">
+          <p>I had the opportunity to work with Usman, and I was impressed by his strong UI/UX design skills, attention to detail, and ability to understand user needs. He has a great talent for turning complex requirements into clean, intuitive, and user-friendly designs.</p>
+          <p>Usman is creative, collaborative, and solution-oriented. He takes ownership of his work, communicates well with the team, and consistently focuses on delivering high-quality results.</p>
+        </div>
+      </article>
+      <article class="kw-card">
+        <div class="kw-person">
+          <span class="kw-avatar" style="--kw-c:linear-gradient(135deg,#62c7ff,#7ef0c1)">AS</span>
+          <div><b>Ahmad Shoaib</b><small>Senior Product Designer (UI/UX)</small><em>Senior colleague</em></div>
+          <span class="kw-li" aria-label="LinkedIn recommendation">in</span>
+        </div>
+        <div class="kw-stars" aria-hidden="true">★★★★★</div>
+        <div class="kw-quote">
+          <p>I had the pleasure of working with Usman and found him to be a talented, detail-oriented UI/UX Designer with a strong understanding of user experience. He is creative, collaborative, and receptive to feedback. His professionalism and commitment to quality make him a valuable team member. I highly recommend him to any organization seeking a skilled UI/UX Designer.</p>
+        </div>
+      </article>
+
+      <article class="kw-card">
+        <div class="kw-person">
+          <span class="kw-avatar" style="--kw-c:linear-gradient(135deg,#ff7ad9,#a69cff)">MS</span>
+          <div><b>Maryam Shahzad</b><small>Product Manager @ Hone · Chapter Lead @ Slack</small><em>Different teams</em></div>
+          <span class="kw-li" aria-label="LinkedIn recommendation">in</span>
+        </div>
+        <div class="kw-stars" aria-hidden="true">★★★★★</div>
+        <div class="kw-quote">
+          <p>I've worked with Usman both at TEO International and on projects outside of it, and he's the kind of designer every product team hopes to get. He doesn't just make screens look good. He thinks about how people will actually use them, and his designs hold up once they reach development and real users.</p>
+          <p>Working with him in different settings showed me he's consistent.</p>
+        </div>
+      </article>
+
+      <article class="kw-card">
+        <div class="kw-person">
+          <span class="kw-avatar" style="--kw-c:linear-gradient(135deg,#ffd96a,#ff7ad9)">MH</span>
+          <div><b>Mr. Haseeb</b><small>Full Stack Agentic AI Engineer</small><em>Mentor</em></div>
+          <span class="kw-li" aria-label="LinkedIn recommendation">in</span>
+        </div>
+        <div class="kw-stars" aria-hidden="true">★★★★★</div>
+        <div class="kw-quote">
+          <p>I've had the opportunity to connect with Muhammad Usman professionally and have always found him to be a respectful, professional, and approachable person. He communicates clearly, maintains a positive attitude, and shows a genuine commitment to his professional growth.</p>
+          <p>I would happily recommend Muhammad to anyone looking for a dedicated and professional individual.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<script>
+(() => {
+  const track = document.querySelector('#kind-words .kw-track');
+  if (!track) return;
+  // Duplicate the cards once so the slide loops seamlessly; the copies are hidden from screen readers.
+  [...track.children].forEach(card => {
+    const copy = card.cloneNode(true);
+    copy.setAttribute('aria-hidden', 'true');
+    track.appendChild(copy);
+  });
+  // Keep the pace steady (about 40px per second) whatever the screen width.
+  const setSpeed = () => track.style.setProperty('--kw-dur', Math.max(30, track.scrollWidth / 2 / 40) + 's');
+  setSpeed();
+  addEventListener('resize', setSpeed, { passive: true });
+  track.classList.add('kw-run');
+})();
+</script>
+
 </main>
 
 <footer>
