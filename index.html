@@ -4866,8 +4866,7 @@ footer .socials a:hover{color:#a69cff}
 #case-studies .cs-head{display:flex;align-items:end;justify-content:space-between;gap:28px;margin-bottom:28px}
 #case-studies .cs-head h2{font-size:clamp(52px,8vw,112px);line-height:.92;letter-spacing:-.065em}
 #case-studies .cs-head sup{display:inline-block;margin-left:.12em;font-size:.26em;letter-spacing:0;vertical-align:top;line-height:1;color:var(--violet);transform:translateY(.35em)}
-#case-studies .cs-head p{max-width:330px;margin-bottom:8px;font-size:15px;line-height:1.6;color:var(--muted)}
-@media (max-width:760px){#case-studies .cs-head{display:block}#case-studies .cs-head p{margin-top:14px}}
+@media (max-width:760px){#case-studies .cs-head{display:block}}
 .cs-list{display:grid;gap:22px}
 .cs-card{display:grid;grid-template-columns:1.05fr 1fr;border:1px solid var(--line);border-radius:26px;background:#fff;overflow:hidden;
   box-shadow:0 10px 30px rgba(20,18,35,.04);transition:box-shadow .6s cubic-bezier(.16,1,.3,1),border-color .6s}
@@ -4920,7 +4919,6 @@ footer .socials a:hover{color:#a69cff}
         <div class="kicker">Featured work</div>
         <h2 id="case-studies-title">Case Studies<sup>(02)</sup></h2>
       </div>
-      <p>In-depth stories of how I designed LocalGap and TalentPick AI, from research to developer handoff.</p>
     </div>
 
     <div class="cs-list">
@@ -4993,20 +4991,27 @@ footer .socials a:hover{color:#a69cff}
 
 <script>
 (() => {
-  // Case study previews: load each video only when it comes near the screen, play it while visible, pause it when not.
+  // Case study previews: preload each video shortly before it is reached, then play it
+  // from the beginning every time it comes into view, and pause it when it leaves.
   const vids = document.querySelectorAll('#case-studies .cs-video');
   if (!vids.length) return;
   const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const start = v => {
-    if (!v.src) { v.src = v.dataset.src; v.preload = 'auto'; }
+  const load = v => { if (!v.src) { v.src = v.dataset.src; v.preload = 'auto'; v.load(); } };
+  const playFromStart = v => {
+    load(v);
     if (reduce) return;
+    try { v.currentTime = 0; } catch (e) {}
     const p = v.play(); if (p && p.catch) p.catch(() => {});
   };
   vids.forEach(v => {
     v.muted = true;
     v.addEventListener('playing', () => v.closest('.cs-media').classList.add('is-live'));
-    if (!('IntersectionObserver' in window)) { start(v); return; }
-    new IntersectionObserver(([e]) => { e.isIntersecting ? start(v) : v.pause(); }, { rootMargin: '150px 0px' }).observe(v);
+    if (!('IntersectionObserver' in window)) { playFromStart(v); return; }
+    new IntersectionObserver(([e]) => { if (e.isIntersecting) load(v); }, { rootMargin: '600px 0px' }).observe(v);
+    new IntersectionObserver(([e]) => {
+      if (e.isIntersecting) playFromStart(v);
+      else { v.pause(); }
+    }, { threshold: .5 }).observe(v);
   });
 })();
 </script>
