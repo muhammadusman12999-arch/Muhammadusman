@@ -7444,5 +7444,259 @@ document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(a => {
 </script>
 
 
+
+<style id="project-drawer-styles">
+.pd-overlay{position:fixed;inset:0;z-index:9998;background:rgba(17,14,32,.45);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s ease}
+.pd-overlay.open{opacity:1;pointer-events:auto}
+.pd{position:fixed;top:0;right:0;bottom:0;z-index:9999;width:min(760px,100vw);background:#fff;color:var(--ink,#151515);box-shadow:-30px 0 80px rgba(17,14,32,.18);
+  transform:translateX(102%);transition:transform .55s cubic-bezier(.16,1,.3,1);display:flex;flex-direction:column;font-family:"DM Sans","DM Sans Fallback",sans-serif}
+.pd.open{transform:none}
+.pd-top{display:flex;align-items:center;gap:10px;padding:16px 22px;border-bottom:1px solid #eeeee9;background:#fff;position:relative;z-index:2}
+.pd-count{font:700 12px/1 "DM Sans";letter-spacing:.14em;text-transform:uppercase;color:#8a8a84;margin-right:auto}
+.pd-btn{width:40px;height:40px;border-radius:12px;border:1px solid #e7e7e2;background:#fff;display:grid;place-items:center;cursor:pointer;color:#151515;transition:background .2s,border-color .2s}
+.pd-btn:hover{background:#f4f4f2;border-color:#d6d6d0}
+.pd-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pd-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain}
+.pd-hero{position:relative;background:#f4f4f2;aspect-ratio:16/10;overflow:hidden}
+.pd-hero img,.pd-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
+.pd-thumbs{display:flex;gap:8px;padding:12px 22px 0}
+.pd-thumbs button{flex:0 0 74px;height:52px;border-radius:10px;overflow:hidden;border:2px solid transparent;padding:0;cursor:pointer;background:#f4f4f2}
+.pd-thumbs button.on{border-color:var(--violet,#6758ff)}
+.pd-thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+.pd-body{padding:26px 30px 40px}
+.pd-tag{font:700 11px/1 "DM Sans";letter-spacing:.16em;text-transform:uppercase;color:var(--violet,#6758ff)}
+.pd-body h2{font:700 40px/1.02 "Space Grotesk","Space Grotesk Fallback",sans-serif;letter-spacing:-.045em;margin:12px 0 12px}
+.pd-sum{font:400 17px/1.6 "DM Sans";color:#4a4a4a}
+.pd-actions{display:flex;flex-wrap:wrap;gap:10px;margin:22px 0 26px}
+.pd-a{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:999px;font:700 14px/1 "DM Sans";text-decoration:none;transition:transform .3s cubic-bezier(.16,1,.3,1),background .2s}
+.pd-a:hover{transform:translateY(-2px)}
+.pd-a.primary{background:#151515;color:#fff}
+.pd-a.primary:hover{background:#2b2b2b}
+.pd-a.ghost{background:#fff;color:#151515;border:1px solid #e1e1dc}
+.pd-a svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.pd-glance{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px}
+.pd-glance div{padding:16px;border-radius:16px;background:#f6f6f4}
+.pd-glance small{display:block;font:700 10px/1 "DM Sans";letter-spacing:.14em;text-transform:uppercase;color:#8a8a84;margin-bottom:8px}
+.pd-glance b{font:700 15px/1.3 "Space Grotesk","Space Grotesk Fallback",sans-serif;letter-spacing:-.01em}
+.pd-result{display:flex;align-items:center;gap:16px;margin-top:10px;padding:18px 20px;border-radius:16px;background:#151515;color:#fff}
+.pd-result b{font:700 30px/1 "Space Grotesk","Space Grotesk Fallback",sans-serif;letter-spacing:-.04em;white-space:nowrap}
+.pd-result span{font:500 14px/1.45 "DM Sans";color:#d7d7d2}
+.pd-sec{margin-top:30px}
+.pd-sec h3{font:700 12px/1 "DM Sans";letter-spacing:.16em;text-transform:uppercase;color:#8a8a84;margin-bottom:12px}
+.pd-sec p{font:400 16px/1.65 "DM Sans";color:#3b3b3b}
+.pd-list{list-style:none;display:flex;flex-direction:column;gap:10px}
+.pd-list li{position:relative;padding-left:22px;font:400 16px/1.55 "DM Sans";color:#3b3b3b}
+.pd-list li:before{content:"";position:absolute;left:2px;top:9px;width:8px;height:8px;border-radius:50%;background:var(--violet,#6758ff)}
+.pd-chips{display:flex;flex-wrap:wrap;gap:8px}
+.pd-chips span{padding:8px 12px;border-radius:999px;border:1px solid #e7e7e2;font:600 13px/1 "DM Sans";color:#4b4b4b}
+.pd-next{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:34px;padding:20px 22px;border-radius:18px;border:1px solid #eeeee9;cursor:pointer;background:#fafaf8;transition:border-color .2s,background .2s}
+.pd-next:hover{border-color:#d6d6d0;background:#f4f4f2}
+.pd-next small{display:block;font:700 10px/1 "DM Sans";letter-spacing:.14em;text-transform:uppercase;color:#8a8a84;margin-bottom:6px}
+.pd-next b{font:700 18px/1.2 "Space Grotesk","Space Grotesk Fallback",sans-serif;letter-spacing:-.02em}
+.pd-next svg{width:20px;height:20px;flex:0 0 auto;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+#work .work-card{cursor:pointer}
+#work .work-card .pd-hint{position:absolute;left:50%;bottom:16px;transform:translate(-50%,8px);opacity:0;z-index:6;padding:9px 14px;border-radius:999px;background:#151515;color:#fff;font:700 12px/1 "DM Sans";white-space:nowrap;pointer-events:none;transition:opacity .3s,transform .3s}
+#work .work-card .visual{position:relative}
+#work .work-card:hover .pd-hint,#work .work-card:focus-visible .pd-hint{opacity:1;transform:translate(-50%,0)}
+body.pd-lock{overflow:hidden}
+@media (max-width:640px){
+  .pd-body{padding:22px 20px 32px}
+  .pd-body h2{font-size:32px}
+  .pd-glance{grid-template-columns:1fr 1fr}
+  .pd-result{flex-direction:column;align-items:flex-start;gap:8px}
+}
+@media (prefers-reduced-motion:reduce){.pd,.pd-overlay,.pd-a{transition:none}}
+</style>
+
+<div class="pd-overlay" id="pdOverlay"></div>
+<aside class="pd" id="pd" role="dialog" aria-modal="true" aria-labelledby="pdTitle" aria-hidden="true" tabindex="-1">
+  <div class="pd-top">
+    <span class="pd-count" id="pdCount">Project 1 of 5</span>
+    <button class="pd-btn" id="pdPrev" aria-label="Previous project"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="pd-btn" id="pdNext" aria-label="Next project"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button class="pd-btn" id="pdClose" aria-label="Close project details"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="pd-scroll" id="pdScroll">
+    <div class="pd-hero" id="pdHero"></div>
+    <div class="pd-thumbs" id="pdThumbs"></div>
+    <div class="pd-body">
+      <div class="pd-tag" id="pdTag"></div>
+      <h2 id="pdTitle"></h2>
+      <p class="pd-sum" id="pdSum"></p>
+      <div class="pd-actions" id="pdActions"></div>
+      <div class="pd-glance" id="pdGlance"></div>
+      <div class="pd-result" id="pdResult"></div>
+      <div class="pd-sec"><h3>The problem</h3><p id="pdProblem"></p></div>
+      <div class="pd-sec"><h3>What I did</h3><ul class="pd-list" id="pdDid"></ul></div>
+      <div class="pd-sec"><h3>Skills used</h3><div class="pd-chips" id="pdSkills"></div></div>
+      <div class="pd-next" id="pdNextCard" role="button" tabindex="0"><div><small>Next project</small><b id="pdNextName"></b></div><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+    </div>
+  </div>
+</aside>
+
+<script id="project-drawer-script">
+(() => {
+  const P = {
+    'TalentPick AI: Resume Screening': {
+      slug: 'talentpick', tag: 'AI recruitment · HR tech',
+      sum: 'An AI recruitment platform where HR teams upload a batch of CVs and get candidate details, skills and role fit in one place.',
+      images: ['assets/images/img-01-5b7b9ec493.webp'], video: 'assets/videos/case-talentpick.mp4', poster: 'assets/images/case-talentpick.jpg',
+      glance: [['Platform', 'Web app, mobile app, website'], ['Industry', 'HR & recruitment'], ['Status', 'Live product']],
+      result: ['Up to 30%', 'less time spent screening CVs for HR teams.'],
+      problem: 'Recruiters were reading every CV by hand and copying details into spreadsheets. It was slow, inconsistent and good candidates were easy to miss.',
+      did: ['Designed one simple pattern (upload, process, see results) shared by seven AI tools', 'Mapped 15+ user flows and designed 30+ screens', 'Designed clear states for loading, errors and edge cases so HR can trust the results', 'Kept web, mobile and the marketing site in one consistent system'],
+      skills: ['UX research', 'User flows', 'UI design', 'Design system', 'Prototyping', 'AI product design'],
+      live: 'https://www.talentpickai.com/', study: 'https://www.behance.net/gallery/259068713/TalentpickAI-Case-Study'
+    },
+    'Nordlys AI: Medical Scheduling': {
+      slug: 'nordlys', tag: 'Healthcare · AI scheduling',
+      sum: 'A medical system where AI helps patients and doctors agree on an appointment time with far less back and forth.',
+      images: ['assets/images/img-02-612c10bd52.webp'],
+      glance: [['Platform', 'Web'], ['Industry', 'Healthcare'], ['Status', 'Live product']],
+      result: ['20 to 5 min', 'average time to arrange an appointment.'],
+      problem: 'Booking a doctor meant calls, messages and waiting. Patients and clinics spent too long finding a time that worked for both.',
+      did: ['Designed the booking journey for patients and the scheduling view for doctors', 'Made AI suggestions easy to understand and easy to change', 'Kept the interface calm and clear for people who may be unwell or stressed'],
+      skills: ['UX design', 'Healthcare UX', 'UI design', 'AI product design', 'Prototyping'],
+      live: 'https://nordlys-ai.no/'
+    },
+    'Snapwio: Proof of Work': {
+      slug: 'snapwio', tag: 'Field service · Mobile app',
+      sum: 'Snapwio turns photos from each job into a dated report that a service team can send to its client.',
+      images: ['assets/images/img-03-46133c95ac.webp'],
+      glance: [['Platform', 'Mobile app'], ['Industry', 'Field service'], ['Status', 'Live product']],
+      result: ['15+ screens', 'and 6+ user flows designed for teams on site.'],
+      problem: 'Service teams had no simple way to prove what they did on a job, which led to disputes and lost trust with clients.',
+      did: ['Designed a quick flow to capture job photos on site', 'Turned photos into a clean, dated report the client can open and check', 'Designed 15+ mobile screens across 6+ user flows', 'Produced a user guide video to help new teams get started'],
+      skills: ['Mobile UX', 'User flows', 'UI design', 'Prototyping', 'Onboarding'],
+      live: 'https://www.snapwio.com/'
+    },
+    'LocalGap: Competitor Insights': {
+      slug: 'localgap', tag: 'SaaS · Local business',
+      sum: 'LocalGap reads nearby businesses’ Google reviews and shows what customers like, what bothers them and what to work on next.',
+      images: ['assets/images/img-04-99f658ec03.webp'], video: 'assets/videos/case-localgap.mp4', poster: 'assets/images/case-localgap.jpg',
+      glance: [['Platform', 'Responsive web app'], ['Industry', 'Local business'], ['Status', 'Live product']],
+      result: ['Up to 40%', 'less manual research for business owners.'],
+      problem: 'Owners could see their star rating but not why customers chose a rival. Reading hundreds of reviews took hours and still didn’t say what to change.',
+      did: ['Interviewed owners and mapped their journey', 'Cut the flow to one step: paste a link, get a full Gap Report', 'Designed a report that explains every score with real reviews', 'Designed simple credits and plans with no surprise costs'],
+      skills: ['UX research', 'Journey mapping', 'UI design', 'Data visualisation', 'Prototyping'],
+      live: 'https://localgap.app/', study: 'https://www.behance.net/gallery/259064201/LocalGap-Case-Study'
+    },
+    'Nikhz: Halal Matchmaking': {
+      slug: 'nikhz', tag: 'Mobile app · Client in Sweden',
+      sum: 'A halal matchmaking app for Muslim singles in Sweden, built around profile discovery and intentional connections.',
+      images: ['assets/images/img-05-0d92822fb0.webp', 'assets/images/img-06-d20083e98d.webp', 'assets/images/img-07-e2c2a8099b.webp', 'assets/images/img-08-87d1325a67.webp'],
+      glance: [['Platform', 'Mobile app'], ['Industry', 'Social & dating'], ['Status', 'Live on Google Play']],
+      result: ['Live', 'on Google Play for users in Sweden.'],
+      problem: 'Muslim singles wanted a respectful way to meet people who share their values, without the pressure of typical dating apps.',
+      did: ['Designed profile discovery that puts values and intentions first', 'Designed calm, respectful flows for connecting and messaging', 'Worked with a client in Sweden from first ideas to the published app'],
+      skills: ['Mobile UX', 'UI design', 'User flows', 'Client collaboration'],
+      live: 'https://play.google.com/store/apps/details?id=com.soft.nikhz&hl=en', liveLabel: 'View on Google Play'
+    }
+  };
+
+  const cards = [...document.querySelectorAll('#work .work-card')].filter(c => P[c.dataset.name]);
+  if (!cards.length) return;
+  const order = cards.map(c => c.dataset.name);
+  const $ = id => document.getElementById(id);
+  const pd = $('pd'), ov = $('pdOverlay');
+  let cur = -1, lastFocus = null;
+  const ext = '<svg viewBox="0 0 24 24"><path d="M7 17L17 7M9 7h8v8"/></svg>';
+
+  function showMedia(p, i) {
+    const hero = $('pdHero');
+    if (i === -1 && p.video) {
+      hero.innerHTML = `<video muted loop playsinline autoplay poster="${p.poster}" src="${p.video}"></video>`;
+    } else {
+      hero.innerHTML = `<img src="${p.images[Math.max(i, 0)]}" alt="${order[cur]} screen ${Math.max(i, 0) + 1}">`;
+    }
+    $('pdThumbs').querySelectorAll('button').forEach(b => b.classList.toggle('on', +b.dataset.i === i));
+  }
+
+  function render(i) {
+    cur = (i + order.length) % order.length;
+    const name = order[cur], p = P[name];
+    $('pdCount').textContent = `Project ${cur + 1} of ${order.length}`;
+    $('pdTag').textContent = p.tag;
+    $('pdTitle').textContent = name;
+    $('pdSum').textContent = p.sum;
+    let acts = `<a class="pd-a primary" href="${p.live}" target="_blank" rel="noopener">${p.liveLabel || 'Visit live site'} ${ext}</a>`;
+    if (p.study) acts += `<a class="pd-a ghost" href="${p.study}" target="_blank" rel="noopener">Read full case study ${ext}</a>`;
+    $('pdActions').innerHTML = acts;
+    $('pdGlance').innerHTML = p.glance.map(g => `<div><small>${g[0]}</small><b>${g[1]}</b></div>`).join('');
+    $('pdResult').innerHTML = `<b>${p.result[0]}</b><span>${p.result[1]}</span>`;
+    $('pdProblem').textContent = p.problem;
+    $('pdDid').innerHTML = p.did.map(d => `<li>${d}</li>`).join('');
+    $('pdSkills').innerHTML = p.skills.map(s => `<span>${s}</span>`).join('');
+    const thumbs = [];
+    if (p.video) thumbs.push(`<button data-i="-1" aria-label="Play preview video"><img src="${p.poster}" alt=""></button>`);
+    if (p.video || p.images.length > 1) p.images.forEach((src, k) => thumbs.push(`<button data-i="${k}" aria-label="Show screen ${k + 1}"><img src="${src}" alt=""></button>`));
+    $('pdThumbs').innerHTML = thumbs.join('');
+    $('pdThumbs').style.display = thumbs.length ? 'flex' : 'none';
+    $('pdThumbs').querySelectorAll('button').forEach(b => b.onclick = () => showMedia(p, +b.dataset.i));
+    showMedia(p, p.video ? -1 : 0);
+    $('pdNextName').textContent = order[(cur + 1) % order.length];
+    $('pdScroll').scrollTop = 0;
+    if (location.hash !== '#project-' + p.slug) history.replaceState(null, '', '#project-' + p.slug);
+  }
+
+  function open(i) {
+    lastFocus = document.activeElement;
+    render(i);
+    pd.classList.add('open'); ov.classList.add('open');
+    pd.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('pd-lock');
+    setTimeout(() => $('pdClose').focus(), 60);
+  }
+  function close() {
+    pd.classList.remove('open'); ov.classList.remove('open');
+    pd.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('pd-lock');
+    $('pdHero').innerHTML = '';
+    if (location.hash.startsWith('#project-')) history.replaceState(null, '', '#work');
+    if (lastFocus) lastFocus.focus();
+  }
+
+  cards.forEach((card, i) => {
+    card.setAttribute('tabindex', '0');
+    card.setAttribute('role', 'button');
+    card.setAttribute('aria-label', `View details for ${card.dataset.name}`);
+    const vis = card.querySelector('.visual');
+    if (vis && !vis.querySelector('.pd-hint')) vis.insertAdjacentHTML('beforeend', '<span class="pd-hint">View project details</span>');
+    // capture phase: open the panel instead of leaving the site
+    card.addEventListener('click', e => { e.preventDefault(); e.stopImmediatePropagation(); open(i); }, true);
+    card.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(i); } });
+  });
+
+  $('pdClose').onclick = close;
+  ov.onclick = close;
+  $('pdPrev').onclick = () => render(cur - 1);
+  $('pdNext').onclick = () => render(cur + 1);
+  $('pdNextCard').onclick = () => render(cur + 1);
+  $('pdNextCard').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); render(cur + 1); } };
+  document.addEventListener('keydown', e => {
+    if (!pd.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') render(cur + 1);
+    else if (e.key === 'ArrowLeft') render(cur - 1);
+    else if (e.key === 'Tab') {
+      const f = [...pd.querySelectorAll('button,a[href],[tabindex="0"]')].filter(el => el.offsetParent);
+      if (!f.length) return;
+      if (e.shiftKey && document.activeElement === f[0]) { e.preventDefault(); f.at(-1).focus(); }
+      else if (!e.shiftKey && document.activeElement === f.at(-1)) { e.preventDefault(); f[0].focus(); }
+    }
+  });
+
+  // open from a shared link like #project-localgap
+  const fromHash = () => {
+    const m = location.hash.match(/^#project-(.+)$/);
+    if (!m) return;
+    const i = order.findIndex(n => P[n].slug === m[1]);
+    if (i > -1 && !pd.classList.contains('open')) open(i);
+  };
+  fromHash();
+  addEventListener('hashchange', fromHash);
+})();
+</script>
+
 </body>
 </html>
