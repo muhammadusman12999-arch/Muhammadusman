@@ -7529,7 +7529,6 @@ body.pd-lock{overflow:hidden}
       <div class="pd-sec"><h3>The problem</h3><p id="pdProblem"></p></div>
       <div class="pd-sec"><h3>What I did</h3><ul class="pd-list" id="pdDid"></ul></div>
       <div class="pd-sec"><h3>Skills used</h3><div class="pd-chips" id="pdSkills"></div></div>
-      <div class="pd-next" id="pdNextCard" role="button" tabindex="0"><div><small>Next project</small><b id="pdNextName"></b></div><svg viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
     </div>
   </div>
 </aside>
@@ -7634,7 +7633,6 @@ body.pd-lock{overflow:hidden}
     $('pdThumbs').style.display = thumbs.length ? 'flex' : 'none';
     $('pdThumbs').querySelectorAll('button').forEach(b => b.onclick = () => showMedia(p, +b.dataset.i));
     showMedia(p, p.video ? -1 : 0);
-    $('pdNextName').textContent = order[(cur + 1) % order.length];
     $('pdScroll').scrollTop = 0;
     if (location.hash !== '#project-' + p.slug) history.replaceState(null, '', '#project-' + p.slug);
   }
@@ -7671,8 +7669,6 @@ body.pd-lock{overflow:hidden}
   ov.onclick = close;
   $('pdPrev').onclick = () => render(cur - 1);
   $('pdNext').onclick = () => render(cur + 1);
-  $('pdNextCard').onclick = () => render(cur + 1);
-  $('pdNextCard').onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); render(cur + 1); } };
   document.addEventListener('keydown', e => {
     if (!pd.classList.contains('open')) return;
     if (e.key === 'Escape') close();
