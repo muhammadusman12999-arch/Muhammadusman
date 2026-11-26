@@ -7458,7 +7458,9 @@ document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(a => {
 .pd-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 .pd-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain}
 .pd-hero{position:relative;background:#f4f4f2;aspect-ratio:16/10;overflow:hidden}
+.pd-hero.is-video{aspect-ratio:16/9;background:#0f0f14}
 .pd-hero img,.pd-hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top center}
+.pd-hero video{object-fit:contain;object-position:center}
 .pd-thumbs{display:flex;gap:8px;padding:12px 22px 0}
 .pd-thumbs button{flex:0 0 74px;height:52px;border-radius:10px;overflow:hidden;border:2px solid transparent;padding:0;cursor:pointer;background:#f4f4f2}
 .pd-thumbs button.on{border-color:var(--violet,#6758ff)}
@@ -7602,6 +7604,7 @@ body.pd-lock{overflow:hidden}
 
   function showMedia(p, i) {
     const hero = $('pdHero');
+    hero.classList.toggle('is-video', i === -1 && !!p.video);
     if (i === -1 && p.video) {
       hero.innerHTML = `<video muted loop playsinline autoplay poster="${p.poster}" src="${p.video}"></video>`;
     } else {
