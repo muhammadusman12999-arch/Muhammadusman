@@ -7518,7 +7518,6 @@ body.pd-lock{overflow:hidden}
   </div>
   <div class="pd-scroll" id="pdScroll">
     <div class="pd-hero" id="pdHero"></div>
-    <div class="pd-thumbs" id="pdThumbs"></div>
     <div class="pd-body">
       <div class="pd-tag" id="pdTag"></div>
       <h2 id="pdTitle"></h2>
@@ -7608,7 +7607,6 @@ body.pd-lock{overflow:hidden}
     } else {
       hero.innerHTML = `<img src="${p.images[Math.max(i, 0)]}" alt="${order[cur]} screen ${Math.max(i, 0) + 1}">`;
     }
-    $('pdThumbs').querySelectorAll('button').forEach(b => b.classList.toggle('on', +b.dataset.i === i));
   }
 
   function render(i) {
@@ -7626,12 +7624,6 @@ body.pd-lock{overflow:hidden}
     $('pdProblem').textContent = p.problem;
     $('pdDid').innerHTML = p.did.map(d => `<li>${d}</li>`).join('');
     $('pdSkills').innerHTML = p.skills.map(s => `<span>${s}</span>`).join('');
-    const thumbs = [];
-    if (p.video) thumbs.push(`<button data-i="-1" aria-label="Play preview video"><img src="${p.poster}" alt=""></button>`);
-    if (p.video || p.images.length > 1) p.images.forEach((src, k) => thumbs.push(`<button data-i="${k}" aria-label="Show screen ${k + 1}"><img src="${src}" alt=""></button>`));
-    $('pdThumbs').innerHTML = thumbs.join('');
-    $('pdThumbs').style.display = thumbs.length ? 'flex' : 'none';
-    $('pdThumbs').querySelectorAll('button').forEach(b => b.onclick = () => showMedia(p, +b.dataset.i));
     showMedia(p, p.video ? -1 : 0);
     $('pdScroll').scrollTop = 0;
     if (location.hash !== '#project-' + p.slug) history.replaceState(null, '', '#project-' + p.slug);
