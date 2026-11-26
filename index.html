@@ -4909,7 +4909,25 @@ footer .socials a:hover{color:#a69cff}
   .cs-stats{grid-template-columns:repeat(2,minmax(0,1fr))}
   .cs-pao div{grid-template-columns:1fr;gap:2px}
 }
-@media (prefers-reduced-motion:reduce){.cs-screen,.cs-cta,.cs-cta i{transition:none}}
+.cs-impact{display:flex;align-items:center;gap:14px;margin:4px 0 18px;padding:14px 16px;border-radius:16px;background:linear-gradient(90deg,#f1efff,#fff 85%);border:1px solid #e4e0ff}
+.cs-impact b{flex:0 0 auto;padding:7px 10px;border-radius:999px;background:var(--violet);color:#fff;font:700 10px/1 "DM Sans";letter-spacing:.14em;text-transform:uppercase}
+.cs-impact span{font:700 17px/1.35 "Space Grotesk","Space Grotesk Fallback",sans-serif;letter-spacing:-.02em;color:var(--ink)}
+.cs-decisions{grid-column:1/-1;order:3;border-top:1px solid var(--line);padding:clamp(24px,3vw,36px) clamp(24px,3vw,40px) clamp(26px,3vw,40px);background:#fbfbfa}
+.cs-decisions h4{display:flex;align-items:center;gap:10px;font:700 12px/1 "DM Sans";letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-bottom:18px}
+.cs-decisions h4:after{content:"";flex:1;height:1px;background:var(--line)}
+.cs-dgrid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.cs-d{position:relative;padding:20px 20px 18px;border-radius:18px;background:#fff;border:1px solid var(--line);transition:transform .45s cubic-bezier(.16,1,.3,1),box-shadow .45s,border-color .45s}
+.cs-d:hover{transform:translateY(-3px);border-color:#d9d4ff;box-shadow:0 16px 36px rgba(20,18,35,.07)}
+.cs-d i{display:inline-grid;place-items:center;width:30px;height:30px;border-radius:9px;background:var(--ink);color:#fff;font:700 13px/1 "Space Grotesk";font-style:normal}
+.cs-d h5{font:700 17px/1.25 "Space Grotesk","Space Grotesk Fallback",sans-serif;letter-spacing:-.02em;margin:14px 0 10px;color:var(--ink)}
+.cs-d p{font:400 13px/1.6 "DM Sans";color:#4a4a4a}
+.cs-d p+p{margin-top:8px}
+.cs-d p b{font-weight:700;color:var(--ink)}
+.cs-d .why{color:#6a6a6a}
+.cs-d .why b{color:var(--violet)}
+.cs-lead{max-width:360px;font:400 16px/1.6 "DM Sans";color:var(--muted);margin-bottom:8px}
+@media (max-width:980px){.cs-dgrid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.cs-screen,.cs-cta,.cs-cta i,.cs-d{transition:none}}
 </style>
 
 <section id="case-studies" aria-labelledby="case-studies-title">
@@ -4919,11 +4937,12 @@ footer .socials a:hover{color:#a69cff}
         <div class="kicker">Featured work</div>
         <h2 id="case-studies-title">Case Studies<sup>(02)</sup></h2>
       </div>
+      <p class="cs-lead">Results first. Each project shows the problem, the key decisions I made and why, and what changed.</p>
     </div>
 
     <div class="cs-list">
       <article class="cs-card reveal">
-        <a class="cs-media" href="https://www.behance.net/gallery/258458173/LocalGap-Case-Study" target="_blank" rel="noopener" aria-label="Open the LocalGap case study on Behance">
+        <a class="cs-media" href="https://www.behance.net/gallery/259064201/LocalGap-Case-Study" target="_blank" rel="noopener" aria-label="Open the LocalGap case study on Behance">
           <div class="cs-screen">
             <video class="cs-video" muted loop playsinline preload="none" poster="assets/images/case-localgap.jpg" data-src="assets/videos/case-localgap.mp4" aria-label="LocalGap case study cover showing the Gap Report and saved report screens"></video>
           </div>
@@ -4933,6 +4952,7 @@ footer .socials a:hover{color:#a69cff}
           <div class="cs-tag">Product design · Web app · SaaS</div>
           <h3>LocalGap</h3>
           <p class="cs-sum">Turning hundreds of competitor reviews into a clear weekly action plan for local business owners.</p>
+          <div class="cs-impact"><b>Impact</b><span>From hours of reading reviews to one clear Gap Report in minutes.</span></div>
           <div class="cs-meta">
             <div><small>Role</small><b>UI/UX Designer</b></div>
             <div><small>Platform</small><b>Responsive web app</b></div>
@@ -4950,12 +4970,13 @@ footer .socials a:hover{color:#a69cff}
             <div><b>3</b><span>plans plus 3 top-up packs</span></div>
             <div><b>1 credit</b><span>covers you + up to 5 rivals</span></div>
           </div>
-          <a class="cs-cta" href="https://www.behance.net/gallery/258458173/LocalGap-Case-Study" target="_blank" rel="noopener">Read full case study <i>↗</i></a>
+          <a class="cs-cta" href="https://www.behance.net/gallery/259064201/LocalGap-Case-Study" target="_blank" rel="noopener">Read full case study <i>↗</i></a>
         </div>
+        <div class="cs-decisions"><h4>Key design decisions</h4><div class="cs-dgrid"><div class="cs-d"><i>1</i><h5>One link, one plan</h5><p><b>Decision:</b> Cut the flow down to a single step: paste a business link and get a full Gap Report.</p><p class="why"><b>Why:</b> Owners are busy. Every extra step was a reason to give up before seeing any value.</p></div><div class="cs-d"><i>2</i><h5>Explain every score</h5><p><b>Decision:</b> Every score in the report shows the reviews and reasons behind it, not just a number.</p><p class="why"><b>Why:</b> Owners don't trust a black box. Seeing the “why” makes them act on the advice.</p></div><div class="cs-d"><i>3</i><h5>Credits you can predict</h5><p><b>Decision:</b> One credit covers your business plus up to 5 rivals, with plans and top-ups shown upfront.</p><p class="why"><b>Why:</b> Clear pricing removes the fear of surprise costs, the main blocker to trying a paid tool.</p></div></div></div>
       </article>
 
       <article class="cs-card reveal">
-        <a class="cs-media" href="https://www.behance.net/gallery/258264877/Talentpickai-Case-Stusy" target="_blank" rel="noopener" aria-label="Open the TalentPick AI case study on Behance">
+        <a class="cs-media" href="https://www.behance.net/gallery/259068713/TalentpickAI-Case-Study" target="_blank" rel="noopener" aria-label="Open the TalentPick AI case study on Behance">
           <div class="cs-screen">
             <video class="cs-video" muted loop playsinline preload="none" poster="assets/images/case-talentpick.jpg" data-src="assets/videos/case-talentpick.mp4" aria-label="TalentPick AI case study cover showing the website, resume summary and mobile app"></video>
           </div>
@@ -4965,6 +4986,7 @@ footer .socials a:hover{color:#a69cff}
           <div class="cs-tag">AI recruitment · Web · Mobile · Website</div>
           <h3>TalentPick AI</h3>
           <p class="cs-sum">An AI recruitment platform where HR teams upload resumes and let AI screen, summarise and extract skills, instead of reading every CV.</p>
+          <div class="cs-impact"><b>Impact</b><span>Up to 30% less time spent screening CVs, across web, mobile and site.</span></div>
           <div class="cs-meta">
             <div><small>Role</small><b>UI/UX Designer</b></div>
             <div><small>Platforms</small><b>Web app, mobile app, website</b></div>
@@ -4982,8 +5004,9 @@ footer .socials a:hover{color:#a69cff}
             <div><b>15+</b><span>user flows mapped</span></div>
             <div><b>3</b><span>platforms: web, mobile, site</span></div>
           </div>
-          <a class="cs-cta" href="https://www.behance.net/gallery/258264877/Talentpickai-Case-Stusy" target="_blank" rel="noopener">Read full case study <i>↗</i></a>
+          <a class="cs-cta" href="https://www.behance.net/gallery/259068713/TalentpickAI-Case-Study" target="_blank" rel="noopener">Read full case study <i>↗</i></a>
         </div>
+        <div class="cs-decisions"><h4>Key design decisions</h4><div class="cs-dgrid"><div class="cs-d"><i>1</i><h5>One pattern for seven tools</h5><p><b>Decision:</b> Every AI tool follows the same upload → process → result flow.</p><p class="why"><b>Why:</b> HR teams learn it once and can use all seven tools without training.</p></div><div class="cs-d"><i>2</i><h5>Design every state</h5><p><b>Decision:</b> Each screen has a clear, friendly state for success, loading, errors and edge cases.</p><p class="why"><b>Why:</b> AI can fail or be slow. Calm, honest states keep recruiters' trust in the results.</p></div><div class="cs-d"><i>3</i><h5>One system, three platforms</h5><p><b>Decision:</b> Web app, mobile app and marketing site share one component system.</p><p class="why"><b>Why:</b> The product feels the same everywhere, and developers build faster from one source.</p></div></div></div>
       </article>
     </div>
   </div>
