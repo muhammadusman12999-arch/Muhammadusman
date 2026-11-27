@@ -4700,7 +4700,7 @@ footer .socials a:hover{color:#a69cff}
   /* dashboard stack */
   stage.querySelector('.stack').innerHTML = pick(dash, 5, 1).map((t, i) => `<i style="--i:${i};${bg(t.src)}"></i>`).join('');
   /* rapid industry cuts */
-  const COL = {'E-commerce':'#ff6a3d','Education':'#3b6bff','Health & Fitness':'#12a06b','Travel':'#0ea5e9','Finance':'#7c4deb','Food':'#f59e0b','Productivity':'#ec4899','Real Estate':'#0f9fb3'};
+  const COL = {'E-commerce':'#ff6a3d','Education':'#3b6bff','Health & Fitness':'#12a06b','Travel':'#0ea5e9','Finance':'#7c4deb','Food':'#f59e0b','Productivity':'#ec4899','Real Estate':'#0f9fb3','Hiring & work':'#6758ff','Local business':'#16a34a'};
   const cats = ['E-commerce','Education','Health & Fitness','Travel','Finance','Food'];
   const wallScene = stage.querySelector('.s-wall');
   cats.forEach((c, k) => {
@@ -4881,7 +4881,7 @@ footer .socials a:hover{color:#a69cff}
    <div>
     <div class="kicker">Design explorations · Behance</div>
     <h2>Different screens. One design mindset.</h2>
-    <p class="bx-sub">50 mobile apps and web dashboards across e-commerce, education, health, travel and finance, straight from my Behance.</p>
+    <p class="bx-sub">70 designs from my Behance, from full case studies and brand work to mobile apps and web dashboards. Click any design to see it in full.</p>
    </div>
    <a class="bx-profile" href="https://www.behance.net/MuhammadUsman026" target="_blank" rel="noopener">
     <span class="bx-av">MU<i></i></span>
@@ -6857,16 +6857,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const grid = document.querySelector('.bx-grid');
   if (!grid || grid.children.length) return;
   const PROFILE = 'https://www.behance.net/MuhammadUsman026';
-  const P = [["Learning Dashboard for Productivity", "Productivity", "Dashboard", "assets/images/img-09-d04f93b025.webp"], ["Perfume Store App", "E-commerce", "Mobile app", "assets/images/img-10-b35cb5f643.webp"], ["Hotel Booking App", "Travel", "Mobile app", "assets/images/img-11-7617c286b7.webp"], ["Store Management Dashboard", "E-commerce", "Dashboard", "assets/images/img-12-b6b0480990.webp"], ["Digital Wallet App", "Finance", "Mobile app", "assets/images/img-13-a0a27746f9.webp"], ["Online Course Dashboard", "Education", "Dashboard", "assets/images/img-14-449e27b725.webp"], ["Banking & Payments App", "Finance", "Mobile app", "assets/images/img-15-2c3c3d25d2.webp"], ["Furniture Store App", "E-commerce", "Mobile app", "assets/images/img-16-1728081d54.webp"], ["E-commerce Admin Dashboard", "E-commerce", "Dashboard", "assets/images/img-17-09805d16eb.webp"], ["Fitness Workout App", "Health & Fitness", "Mobile app", "assets/images/img-18-bfd5b2a3c0.webp"], ["Cloud Storage Dashboard", "Productivity", "Dashboard", "assets/images/img-19-286d43fcb5.webp"], ["Doctor Appointment App", "Health & Fitness", "Mobile app", "assets/images/img-20-d919c8ecf6.webp"], ["Smart Home Energy App", "Finance", "Mobile app", "assets/images/img-21-6f162181cd.webp"], ["Travel Explorer App", "Travel", "Mobile app", "assets/images/img-22-2bc9c7261b.webp"], ["Fashion Store App", "E-commerce", "Mobile app", "assets/images/img-23-627a1451a7.webp"], ["Online Course App", "Education", "Mobile app", "assets/images/img-24-91421f2d74.webp"], ["Coworking Space App", "Travel", "Mobile app", "assets/images/img-25-22c4a1e62e.webp"], ["Dorm Finder App", "Travel", "Mobile app", "assets/images/img-26-d45b0b51c5.webp"], ["Plant Shop App", "E-commerce", "Mobile app", "assets/images/img-27-68b1216eb8.webp"], ["Dream Home Finder App", "Real Estate", "Mobile app", "assets/images/img-28-cf65f85027.webp"], ["Food Delivery App", "Food", "Mobile app", "assets/images/img-29-b691dbcb86.webp"], ["Bakery & Cake App", "Food", "Mobile app", "assets/images/img-30-d204514c40.webp"], ["Recipe & Cooking App", "Food", "Mobile app", "assets/images/img-31-e3d89c484c.webp"], ["Medicine Reminder App", "Health & Fitness", "Mobile app", "assets/images/img-32-8acc7900e6.webp"], ["Project Management App", "Productivity", "Mobile app", "assets/images/img-33-6416903531.webp"], ["Fitness Training App", "Health & Fitness", "Mobile app", "assets/images/img-34-f34f745b1d.webp"], ["Event Finder App", "Travel", "Mobile app", "assets/images/img-35-fef0d02de8.webp"], ["Headphone Store App", "E-commerce", "Mobile app", "assets/images/img-36-5d7a148fcc.webp"], ["Student Assignment App", "Education", "Mobile app", "assets/images/img-37-630e15c31c.webp"], ["Job Finder App", "Productivity", "Mobile app", "assets/images/img-38-71a443e915.webp"], ["Money Transfer App", "Finance", "Mobile app", "assets/images/img-39-cdec8715cf.webp"], ["Gadget Store App", "E-commerce", "Mobile app", "assets/images/img-40-f8efa50fe2.webp"], ["Bag Store App", "E-commerce", "Mobile app", "assets/images/img-41-159a58da48.webp"], ["Vacation Booking App", "Travel", "Mobile app", "assets/images/img-42-6cccc7ac59.webp"], ["Healthy Grocery App", "Food", "Mobile app", "assets/images/img-43-1349166534.webp"], ["Programming Courses App", "Education", "Mobile app", "assets/images/img-44-9c5d3b6a41.webp"], ["Crypto Tracker App", "Finance", "Mobile app", "assets/images/img-45-e53b3b137b.webp"], ["Design Learning Dashboard", "Education", "Dashboard", "assets/images/img-46-3b275da8c9.webp"], ["Habit Tracker Dashboard", "Productivity", "Dashboard", "assets/images/img-47-5b194ee88b.webp"], ["Grocery Marketplace Dashboard", "E-commerce", "Dashboard", "assets/images/img-48-0daee66285.webp"], ["Trip Planner App", "Travel", "Mobile app", "assets/images/img-49-1528e3ad64.webp"], ["Workspace Productivity Dashboard", "Productivity", "Dashboard", "assets/images/img-50-9145d80c42.webp"], ["E-learning Dashboard", "Education", "Dashboard", "assets/images/img-51-339a028554.webp"], ["Production Monitoring Dashboard", "Productivity", "Dashboard", "assets/images/img-52-cd01788c86.webp"], ["Task Management Dashboard", "Productivity", "Dashboard", "assets/images/img-53-1caacc2322.webp"], ["Real Estate Dashboard", "Real Estate", "Dashboard", "assets/images/img-54-e96a828a8d.webp"], ["Learning Platform Dashboard", "Education", "Dashboard", "assets/images/img-55-41a9d2f9cd.webp"], ["Sales Analytics Dashboard", "E-commerce", "Dashboard", "assets/images/img-56-81a6ce8db2.webp"], ["Tutoring Schedule Dashboard", "Education", "Dashboard", "assets/images/img-57-db5d8ee872.webp"], ["Mood Journal Dashboard", "Health & Fitness", "Dashboard", "assets/images/img-58-a2a1970af1.webp"]];
+  const P = [["TalentPick AI case study", "Hiring & work", "Case study", "assets/images/behance/259068713.jpg", "259068713/TalentpickAI-Case-Study", "56efc1259068713.6b081e6cdec11.png"], ["LocalGap case study", "Local business", "Case study", "assets/images/behance/259064201.jpg", "259064201/LocalGap-Case-Study", "f419ee259064201.6b0807dd539bf.png"], ["Learning App UI Design", "Education", "Mobile app", "assets/images/behance/248649631.jpg", "248649631/Learning-App-UI-Design", "232a3c248649631.6b0600830c523.png"], ["CareWell Clinic", "Health & Fitness", "Brand work", "assets/images/behance/258967639.jpg", "258967639/CareWell-Clinic", "8f917e258967639.6b05b3fa4e103.png"], ["Juno — Smoothie Bar Brand Identity", "Food", "Brand work", "assets/images/behance/258958973.jpg", "258958973/Juno-Smoothie-Bar-Brand-Identity", "df3cef258958973.6b058e31a8601.png"], ["Travel Mobile App", "Travel", "Mobile app", "assets/images/behance/255012723.jpg", "255012723/Travel-Mobile-App", "044949255012723.6b05ed0fd4528.png"], ["Urbanest Home", "Real Estate", "Brand work", "assets/images/behance/258967473.jpg", "258967473/Urbanest-Home", "0ea14c258967473.6b05b33f79ac6.png"], ["Valentine Shop", "E-commerce", "Mobile app", "assets/images/behance/259004665.jpg", "259004665/Valentine-Shop", "1fa819259004665.6b06a998dcb16.png"], ["Online Course learning Dashboard", "Education", "Dashboard", "assets/images/behance/255669467.jpg", "255669467/Online-Course-learning-Dashboard", "947a52255669467.6b073364e22e0.png"], ["Travel App Design", "Travel", "Mobile app", "assets/images/behance/248650111.jpg", "248650111/Travel-App-Design", "ad3d8f248650111.6b05fa0006eff.png"], ["Student Learning Dashboard", "Education", "Dashboard", "assets/images/behance/255669391.jpg", "255669391/Student-Learning-Dashboard", "ef5cf8255669391.6b0734b99cf28.png"], ["Pack Smart, Travel Light - Mobile App Concept", "Travel", "Mobile app", "assets/images/behance/255336681.jpg", "255336681/Pack-Smart-Travel-Light-Mobile-App-Concept", "0795e1255336681.6b05eb4a140df.png"], ["E-Commerce Dashboard design", "Productivity", "Dashboard", "assets/images/behance/254686679.jpg", "254686679/E-Commerece-Dashboard-design", "8a09d0254686679.6b0733d49fafd.png"], ["Healthy Food Shop", "Health & Fitness", "Mobile app", "assets/images/behance/255012419.jpg", "255012419/Healthy-Food-Shop", "b68507255012419.6b05efe31122f.png"], ["Tutorial Web Application", "Education", "Dashboard", "assets/images/behance/254325155.jpg", "254325155/Tutorial-Web-Application", "800f2b254325155.6b0732ffc8f57.png"], ["Code learning Application", "Education", "Mobile app", "assets/images/behance/255011643.jpg", "255011643/Code-learning-Application", "ffc6ab255011643.6b05f17e7c4b2.png"], ["Cloud Storage Dashboard", "Productivity", "Dashboard", "assets/images/behance/255322183.jpg", "255322183/Cloud-Storage-Dashboard", "54c383255322183.6b07333105eb9.png"], ["Job Finder Mobile Application", "Hiring & work", "Mobile app", "assets/images/behance/235300653.jpg", "235300653/Job-Finder-Mobile-Application", "845c97235300653.6b06830604933.png"], ["SaaS Journal Dashboard", "Productivity", "Dashboard", "assets/images/behance/255322129.jpg", "255322129/Saas-Journal-Dashboard", "99e01b255322129.6b07338fdca5a.png"], ["Online Banking Mobile Design", "Finance", "Mobile app", "assets/images/behance/248649429.jpg", "248649429/Online-Banking-Mobile-Design", "832a35248649429.6b0681ee29be2.png"], ["Task Management - Dashboard Design", "Productivity", "Dashboard", "assets/images/behance/254324423.jpg", "254324423/Task-Management-Dashboard-Design", "cd0518254324423.6b07348727d78.png"], ["Coin Wallet Design", "Finance", "Mobile app", "assets/images/behance/248667279.jpg", "248667279/Coin-Wallet-Design", "fe3434248667279.6b05fac1a9b1e.png"], ["Your Future AI", "Productivity", "Dashboard", "assets/images/behance/255322233.jpg", "255322233/Your-Future-AI", "ac841a255322233.6b073413c76f3.png"], ["Shopify Mobile Design", "E-commerce", "Mobile app", "assets/images/behance/248633801.jpg", "248633801/Shopify-Mobile-Design", "4279d1248633801.6b0687d471ff3.png"], ["SaaS - Workout Dashboard", "Health & Fitness", "Dashboard", "assets/images/behance/254323207.jpg", "254323207/Saas-Workout-Dashboard", "f99bd0254323207.6b07345a8b6cb.png"], ["FinTech Mobile Design", "Finance", "Mobile app", "assets/images/behance/248649511.jpg", "248649511/FinTech-Mobile-Design", "3f1664248649511.6b0684a8b81ec.png"], ["SaaS Dashboard - Trip Planner", "Travel", "Dashboard", "assets/images/behance/254322797.jpg", "254322797/Saas-Dashboard-Trip-Planner", "c3172a254322797.6b072f5368b52.png"], ["Finance Mobile Design", "Finance", "Mobile app", "assets/images/behance/248649773.jpg", "248649773/Finance-Mobile-Design", "fd7d71248649773.6b05fbd6d24ee.png"], ["SaaS Dashboard - Bank Design", "Finance", "Dashboard", "assets/images/behance/254322645.jpg", "254322645/Saas-Dashboard-Bank-Design", "1dbb39254322645.6b07325b15f6a.png"], ["E-Commerce Mobile Design", "E-commerce", "Mobile app", "assets/images/behance/248631159.jpg", "248631159/E-Commerce-Mobile-Design", "452f14248631159.6b0685dc570f5.png"], ["Ingredients Dashboard Design", "Food", "Dashboard", "assets/images/behance/253681719.jpg", "253681719/Ingredients-Dashboard-Design", "467db4253681719.6b072f94d239e.png"], ["Health Care Mobile Design", "Health & Fitness", "Mobile app", "assets/images/behance/248631447.jpg", "248631447/Health-Care-Mobile-Design", "176862248631447.6b0687fe3ae77.png"], ["SaaS - Learning Dashboard Design", "Education", "Dashboard", "assets/images/behance/253681017.jpg", "253681017/Saas-Learning-Dashboard-Design", "41103b253681017.6b0732944bcb1.png"], ["Project Management Application", "Productivity", "Mobile app", "assets/images/behance/234132523.jpg", "234132523/Project-Management-Application", "6ffd0f234132523.6b068da9d0a81.png"], ["Habits Tracker Dashboard Design", "Health & Fitness", "Dashboard", "assets/images/behance/236871647.jpg", "236871647/Habits-Tracker-Dashboard-Design", "e40a8c236871647.6b06b42374900.png"], ["Event Mobile Application", "Productivity", "Mobile app", "assets/images/behance/234136265.jpg", "234136265/Event-Mobile-Application", "6184ee234136265.6b068e2c0fc71.png"], ["Factory Management System", "Productivity", "Dashboard", "assets/images/behance/250338241.jpg", "250338241/Factory-Management-System", "60fa89250338241.6b072fe133086.png"], ["Digital wallet Application", "Finance", "Mobile app", "assets/images/behance/234501483.jpg", "234501483/Digital-wallet-Application", "f543a9234501483.6b068dd851d78.png"], ["Task Management Dashboard Design", "Productivity", "Dashboard", "assets/images/behance/248608313.jpg", "248608313/Task-Management-Dashboard-Design", "746ccd248608313.6b072e8d05079.png"], ["Online Store", "E-commerce", "Mobile app", "assets/images/behance/248633947.jpg", "248633947/Online-Store", "93bdc3248633947.6b068e06789db.png"], ["Real Estate Dashboard", "Real Estate", "Dashboard", "assets/images/behance/248588555.jpg", "248588555/Real-Estate-Dashboard", "ef9fc1248588555.6b072e37b8fa1.png"], ["FindHome Mobile Design", "Real Estate", "Mobile app", "assets/images/behance/248634147.jpg", "248634147/FindHome-Mobile-Design", "ff68f9248634147.6b06932ccb4b9.png"], ["E-commerce Management Dashboard Design", "E-commerce", "Dashboard", "assets/images/behance/248588423.jpg", "248588423/E-commerce-Management-Dashboard-Design", "6fba66248588423.6b072d4de8fc7.png"], ["Fitness Mobile Design", "Health & Fitness", "Mobile app", "assets/images/behance/248648821.jpg", "248648821/Fitness-Mobile-Design", "a8af84248648821.6b06939d85c39.png"], ["SaaS Dashboard Design", "Productivity", "Dashboard", "assets/images/behance/248578017.jpg", "248578017/SaaS-Dashboard-Design", "5f0842248578017.69f472d0e34bb.png"], ["EchoLink Mobile Design", "Productivity", "Mobile app", "assets/images/behance/248648631.jpg", "248648631/EchoLink-Mobile-Design", "ee07c6248648631.6b068e51c1e6a.png"], ["Grocery Dashboard Design", "Food", "Dashboard", "assets/images/behance/248553065.jpg", "248553065/Grocery-Dashboard-Design", "21e8f4248553065.6b06c2fac34b0.png"], ["Pizza Delivery Application", "Food", "Mobile app", "assets/images/behance/248630955.jpg", "248630955/Pizza-Delivery-Application", "5529cd248630955.6b06935fa5d5e.png"], ["Learning Dashboard Design", "Education", "Dashboard", "assets/images/behance/237335823.jpg", "237335823/Learning-Dashboard-Design", "ce0aac237335823.6b072ee22963e.png"], ["Medical Mobile Application", "Health & Fitness", "Mobile app", "assets/images/behance/248633253.jpg", "248633253/Medical-Mobile-Application", "da325f248633253.6b06975091130.png"], ["SaaS Productivity Dashboard", "Productivity", "Dashboard", "assets/images/behance/236410393.jpg", "236410393/SaaS-Productivity-Dashbiard", "0e76a2236410393.6b072ce3b8e8f.png"], ["Co-Working Space Mobile Design", "Real Estate", "Mobile app", "assets/images/behance/234497031.jpg", "234497031/Co-Working-Space-Mobile-Design", "84861a234497031.6b0697d54fd00.png"], ["SaaS - Productivity Tools", "Productivity", "Dashboard", "assets/images/behance/253681137.jpg", "253681137/Saas-Productivity-Tools", "f6823b253681137.6b0732d160f6d.png"], ["Bakery Mobile Design", "Food", "Mobile app", "assets/images/behance/248649047.jpg", "248649047/Bakery-Mobile-Design", "87ad20248649047.6b0693c8cfe34.png"], ["Recipe Mobile Design", "Food", "Mobile app", "assets/images/behance/248634557.jpg", "248634557/Recipe-Mobile-Design", "b2a8c3248634557.6b0697a0320cc.png"], ["Dormitory Mobile Application", "Real Estate", "Mobile app", "assets/images/behance/234910967.jpg", "234910967/Dormitory-Mobile-Application", "e119b0234910967.6b06980d4ff46.png"], ["Plant Application", "E-commerce", "Mobile app", "assets/images/behance/248632383.jpg", "248632383/Plant-Application", "e37da5248632383.6b069bf852587.png"], ["Food Delivery Mobile Application", "Food", "Mobile app", "assets/images/behance/234553349.jpg", "234553349/Food-Delivery-Mobile-Application", "5cf36f234553349.6b069c1feda35.png"], ["Real Estate Mobile Application", "Real Estate", "Mobile app", "assets/images/behance/234284515.jpg", "234284515/Real-Estate-Mobile-Application", "200c71234284515.6b069c5c0fabb.png"], ["Restaurants Mobile Design", "Food", "Mobile app", "assets/images/behance/248634751.jpg", "248634751/Restaurants-Mobile-Design", "17d138248634751.6b069cb1ab36a.png"], ["Fitness Mobile Application", "Health & Fitness", "Mobile app", "assets/images/behance/234205231.jpg", "234205231/Fitness-Mobile-Application", "c3292b234205231.6b06a7f8b87c2.png"], ["Smart Home Application", "Real Estate", "Mobile app", "assets/images/behance/234083679.jpg", "234083679/Smart-Home-ApPlication", "f70c07234083679.6b06a83a5d8cd.png"], ["Travel Mobile Application", "Travel", "Mobile app", "assets/images/behance/234085315.jpg", "234085315/Travel-Mobile-Application", "29bf9e234085315.6b06a8692d7e3.png"], ["E-Commerce mobile Application", "E-commerce", "Mobile app", "assets/images/behance/234132621.jpg", "234132621/E-Commerce-mobile-Application", "0e7c9d234132621.6b06a8966c614.png"], ["NYKAA Perfume Mobile Application", "E-commerce", "Mobile app", "assets/images/behance/234136621.jpg", "234136621/NYKAA-Perfume-Mobile-Application", "30660b234136621.6b06a8c4731ce.png"], ["Online Course Application Design", "Education", "Mobile app", "assets/images/behance/248630787.jpg", "248630787/Online-Course-Application-Design", "bc0941248630787.6b06a8fe9ccdf.png"], ["Learning courses mobile Application", "Education", "Mobile app", "assets/images/behance/235300709.jpg", "235300709/Learning-courses-mobile-Application", "d5478a235300709.68d42dd16c806.png"], ["Onboarding Screen of Online Shop", "E-commerce", "Mobile app", "assets/images/behance/248649969.jpg", "248649969/Onboarding-Screen-of-Online-Shop", "ec2a0b248649969.6b05e8d783c2d.png"], ["LAMY Application", "E-commerce", "Mobile app", "assets/images/behance/248633019.jpg", "248633019/LAMY-Application", "e083ab248633019.6b05e5f747357.png"], ["Kitchen Application", "Food", "Mobile app", "assets/images/behance/248633517.jpg", "248633517/Kitchen-Application", "c4e0fa248633517.6b05e391ce834.png"]];
+  window.__bxData = P;
   const PAGE = 12;
   const COL = {'E-commerce':'#ff7a45','Education':'#4f7bff','Health & Fitness':'#20b486','Travel':'#1fb6ff','Finance':'#7c4deb','Food':'#f5a524','Productivity':'#ff5fa2','Real Estate':'#0f9fb3'};
-  const types = ['All work','Mobile app','Dashboard'];
+  const types = ['All work','Case study','Brand work','Mobile app','Dashboard'];
   const inds = [...new Set(P.map(p => p[1]))];
   const bar = document.querySelector('.bx-filters');
-  bar.innerHTML = `<div class="bx-seg" role="tablist" aria-label="Project type">${types.map((t, i) => `<button type="button" class="bx-segb${i ? '' : ' on'}" data-type="${t}" role="tab" aria-selected="${!i}">${t === 'Mobile app' ? 'Mobile apps' : t === 'Dashboard' ? 'Web dashboards' : t}<b>${i ? P.filter(p => p[2] === t).length : P.length}</b></button>`).join('')}</div>
-    <div class="bx-inds" aria-label="Industry">${['All industries', ...inds].map((c, i) => `<button type="button" class="bx-filter${i ? '' : ' on'}" data-cat="${c}">${i ? `<i style="background:${COL[c] || '#6758ff'}"></i>` : ''}${c}</button>`).join('')}</div>`;
-  grid.innerHTML = P.map((p, i) => `<a class="bx-tile" href="${PROFILE}" target="_blank" rel="noopener" data-cat="${p[1]}" data-type="${p[2]}" style="--bc:${COL[p[1]] || '#6758ff'}">
-      <div class="bx-shot"><img src="${p[3]}" alt="${p[0]} — UI design by Muhammad Usman" loading="lazy" decoding="async"><span class="bx-zoom" aria-hidden="true">View on Behance ↗</span>${i === 0 ? '<span class="bx-feat">FEATURED</span>' : ''}</div>
+  bar.innerHTML = `<div class="bx-seg" role="tablist" aria-label="Project type">${types.map((t, i) => `<button type="button" class="bx-segb${i ? '' : ' on'}" data-type="${t}" role="tab" aria-selected="${!i}">${t === 'Mobile app' ? 'Mobile apps' : t === 'Dashboard' ? 'Web dashboards' : t === 'Case study' ? 'Case studies' : t}<b>${i ? P.filter(p => p[2] === t).length : P.length}</b></button>`).join('')}</div>`;
+  grid.innerHTML = P.map((p, i) => `<a class="bx-tile" href="https://www.behance.net/gallery/${p[4]}" data-i="${i}" data-cat="${p[1]}" data-type="${p[2]}" style="--bc:${COL[p[1]] || '#6758ff'}">
+      <div class="bx-shot"><img src="${p[3]}" alt="${p[0]} — UI design by Muhammad Usman" loading="lazy" decoding="async"><span class="bx-zoom" aria-hidden="true">Open design</span>${i < 2 ? '<span class="bx-feat">NEW</span>' : ''}</div>
       <div class="bx-cap"><div><h3>${p[0]}</h3><p><span class="bx-dot"></span>${p[1]} · ${p[2]}</p></div><span class="bx-arr" aria-hidden="true">↗</span></div></a>`).join('');
   const tiles = [...grid.children];
   const more = document.createElement('div'); more.className = 'bx-more';
@@ -6918,6 +6918,104 @@ document.addEventListener('DOMContentLoaded', function () {
   if (nums.length) no.observe(nums[0]);
 })();
 </script>
+<style id="bx-panel-styles">
+.bxp-ov{position:fixed;inset:0;z-index:9998;background:rgba(17,14,32,.45);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .35s ease}
+.bxp-ov.open{opacity:1;pointer-events:auto}
+.bxp{position:fixed;top:0;right:0;bottom:0;z-index:9999;width:min(880px,100vw);background:#fff;color:#151229;box-shadow:-30px 0 80px rgba(17,14,32,.18);transform:translateX(102%);visibility:hidden;transition:transform .55s cubic-bezier(.16,1,.3,1),visibility 0s linear .55s;display:flex;flex-direction:column;font-family:"DM Sans","DM Sans Fallback",sans-serif}
+.bxp.open{transform:none;visibility:visible;transition:transform .55s cubic-bezier(.16,1,.3,1)}
+.bxp-top{display:flex;align-items:center;gap:10px;padding:16px 22px;border-bottom:1px solid #eeeef3}
+.bxp-count{font:700 12px/1 "DM Sans","DM Sans Fallback",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#8a87a3;margin-right:auto}
+.bxp-btn{width:40px;height:40px;border-radius:12px;border:1px solid #e6e4ef;background:#fff;display:grid;place-items:center;cursor:pointer;color:#151229;transition:background .2s,border-color .2s}
+.bxp-btn:hover{background:#f4f3f8;border-color:#d4d1e2}
+.bxp-btn svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.bxp-scroll{flex:1;overflow-y:auto;overscroll-behavior:contain}
+.bxp-head{display:flex;justify-content:space-between;align-items:flex-end;gap:20px;flex-wrap:wrap;padding:28px 30px 24px}
+.bxp-tag{display:inline-flex;align-items:center;gap:8px;font:700 11px/1 "DM Sans","DM Sans Fallback",sans-serif;letter-spacing:.14em;text-transform:uppercase;color:#6a6788}
+.bxp-tag i{width:8px;height:8px;border-radius:50%;background:var(--bc,#6758ff)}
+.bxp-head h2{font:700 36px/1.05 "Space Grotesk","Space Grotesk Fallback",sans-serif!important;letter-spacing:-.04em;color:#151229!important;margin:12px 0 0}
+.bxp-be{display:inline-flex;align-items:center;gap:10px;padding:14px 20px;border-radius:999px;background:#151229;color:#fff!important;font:700 14px/1 "DM Sans","DM Sans Fallback",sans-serif;text-decoration:none;white-space:nowrap;transition:background .2s}
+.bxp-be:hover{background:#0057ff}
+.bxp-be svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round}
+.bxp-shot{position:relative;margin:0 30px 30px;border-radius:18px;overflow:hidden;background:#f3f2f8;min-height:320px}
+.bxp-shot img{display:block;width:100%;height:auto}
+.bxp-shot .bxp-ph{position:absolute;inset:0;width:100%;height:auto;filter:blur(8px);transform:scale(1.03);opacity:.7}
+.bxp-shot .bxp-full{position:relative;opacity:0;transition:opacity .4s}
+.bxp-shot.ready .bxp-full{opacity:1}.bxp-shot.ready .bxp-ph{display:none}.bxp-shot.ready{min-height:0}
+.bxp-load{position:absolute;left:50%;top:140px;transform:translateX(-50%);padding:10px 16px;border-radius:999px;background:rgba(21,18,41,.86);color:#fff;font:700 12px/1 "DM Sans","DM Sans Fallback",sans-serif}
+.bxp-shot.ready .bxp-load{display:none}
+.bxp-end{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;margin:0 30px 36px;padding:20px 22px;border-radius:18px;background:#f6f5fa}
+.bxp-end span{font:500 15px/1.4 "DM Sans","DM Sans Fallback",sans-serif;color:#4b4866}
+.bx-tile{cursor:pointer}
+body.bxp-lock{overflow:hidden}
+.bx-segb{white-space:nowrap;flex:none}
+@media (max-width:640px){.bxp-head{padding:22px 18px 18px}.bxp-head h2{font-size:28px}.bxp-shot{margin:0 0 24px;border-radius:0}.bxp-end{margin:0 18px 28px}.bxp-top{padding:12px 16px}}
+@media (prefers-reduced-motion:reduce){.bxp,.bxp-ov{transition:none}}
+</style>
+<div class="bxp-ov" id="bxpOv"></div>
+<aside class="bxp" id="bxp" role="dialog" aria-modal="true" aria-labelledby="bxpTitle" aria-hidden="true" tabindex="-1">
+  <div class="bxp-top">
+    <span class="bxp-count" id="bxpCount"></span>
+    <button class="bxp-btn" id="bxpPrev" aria-label="Previous design"><svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg></button>
+    <button class="bxp-btn" id="bxpNext" aria-label="Next design"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></button>
+    <button class="bxp-btn" id="bxpClose" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="bxp-scroll" id="bxpScroll">
+    <div class="bxp-head"><div><div class="bxp-tag" id="bxpTag"></div><h2 id="bxpTitle"></h2></div><a class="bxp-be" id="bxpBe" target="_blank" rel="noopener">View on Behance <svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
+    <div class="bxp-shot" id="bxpShot"></div>
+    <div class="bxp-end"><span>Like this one? Appreciate it or leave a comment on Behance.</span><a class="bxp-be" id="bxpBe2" target="_blank" rel="noopener">Open on Behance <svg viewBox="0 0 24 24"><path d="M7 17L17 7M8 7h9v9"/></svg></a></div>
+  </div>
+</aside>
+<script id="bx-panel-script">
+(() => {
+  const grid = document.querySelector('#design-explorations .bx-grid'), pane = document.getElementById('bxp');
+  if (!grid || !pane) return;
+  const $ = id => document.getElementById(id), ov = $('bxpOv'), shot = $('bxpShot');
+  const CDN = 'https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/';
+  const data = window.__bxData || [];
+  let list = [], cur = 0, lastFocus = null;
+  const show = k => {
+    cur = (k + list.length) % list.length;
+    const t = list[cur], p = data[+t.dataset.i]; if (!p) return;
+    pane.style.setProperty('--bc', t.style.getPropertyValue('--bc'));
+    $('bxpCount').textContent = `Design ${cur + 1} of ${list.length}`;
+    $('bxpTag').innerHTML = `<i></i>${p[1]} · ${p[2]}`;
+    $('bxpTitle').textContent = p[0];
+    $('bxpBe').href = $('bxpBe2').href = 'https://www.behance.net/gallery/' + p[4];
+    shot.classList.remove('ready');
+    shot.innerHTML = `<img class="bxp-ph" src="${p[3]}" alt=""><span class="bxp-load">Loading design…</span><img class="bxp-full" src="${CDN + p[5]}" alt="${p[0]} by Muhammad Usman">`;
+    const full = shot.querySelector('.bxp-full');
+    const done = () => shot.classList.add('ready');
+    if (full.complete && full.naturalWidth) done(); else { full.onload = done; full.onerror = () => { full.src = p[3]; done(); }; }
+    $('bxpScroll').scrollTop = 0;
+  };
+  const open = tile => {
+    list = [...grid.querySelectorAll('.bx-tile:not(.hide)')];
+    lastFocus = document.activeElement;
+    show(Math.max(0, list.indexOf(tile)));
+    ov.classList.add('open'); pane.classList.add('open'); pane.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('bxp-lock'); document.body.classList.remove('ux-view');
+    setTimeout(() => $('bxpClose').focus({ preventScroll: true }), 60);
+  };
+  const close = () => {
+    ov.classList.remove('open'); pane.classList.remove('open'); pane.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('bxp-lock');
+    if (lastFocus) lastFocus.focus({ preventScroll: true });
+  };
+  grid.addEventListener('click', e => {
+    const t = e.target.closest('.bx-tile'); if (!t || e.metaKey || e.ctrlKey || e.shiftKey) return;
+    e.preventDefault(); e.stopPropagation(); open(t);
+  }, true);
+  $('bxpClose').onclick = close; ov.onclick = close;
+  $('bxpPrev').onclick = () => show(cur - 1); $('bxpNext').onclick = () => show(cur + 1);
+  document.addEventListener('keydown', e => {
+    if (!pane.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') show(cur + 1);
+    else if (e.key === 'ArrowLeft') show(cur - 1);
+  });
+})();
+</script>
+
 
 <script id="ux-work-horizontal-script">
 (() => {
