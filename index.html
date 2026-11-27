@@ -4617,7 +4617,7 @@ footer .socials a:hover{color:#a69cff}
  <div class="container">
   <nav class="nav premium-nav" id="nav">
    <a href="#home" class="logo">
-    <span class="logo-mark">MU</span>
+    <span class="logo-mark"><img class="me-pic" src="assets/images/profile.jpg" alt="Muhammad Usman" width="160" height="160"></span>
     <span class="logo-copy"><b>Muhammad Usman</b><small>UI/UX Designer</small></span>
    </a>
    <div class="nav-links">
@@ -4644,7 +4644,7 @@ footer .socials a:hover{color:#a69cff}
 
 <section class="hero reference-hero exact-reference-hero" id="home">
   <div class="reference-nav-row">
-    <a class="reference-brand" href="#home"><span>MU</span> Muhammad Usman</a>
+    <a class="reference-brand" href="#home"><span><img class="me-pic" src="assets/images/profile.jpg" alt="Muhammad Usman" width="160" height="160"></span> Muhammad Usman</a>
     <nav class="reference-nav" aria-label="Primary navigation">
   <a class="active" href="#home">Home</a>
   <a href="#work">Work</a>
@@ -4915,7 +4915,7 @@ footer .socials a:hover{color:#a69cff}
     <p class="bx-sub">70 designs from my Behance, from full case studies and brand work to mobile apps and web dashboards. Click any design to see it in full.</p>
    </div>
    <a class="bx-profile" href="https://www.behance.net/MuhammadUsman026" target="_blank" rel="noopener">
-    <span class="bx-av">MU<i></i></span>
+    <span class="bx-av"><img class="me-pic" src="assets/images/profile.jpg" alt="Muhammad Usman" width="160" height="160"><i></i></span>
     <span class="bx-pinfo"><b>Muhammad Usman</b><small>UI/UX Designer · Pakistan</small></span>
     <span class="bx-pstats"><span><b data-to="1595">1,595</b>Project views</span><span><b data-to="91">91</b>Appreciations</span></span>
     <span class="bx-follow">Behance <i>↗</i></span>
@@ -5654,7 +5654,7 @@ footer.ft2{background:transparent!important;color:#151229!important;padding:40px
 
   <div class="ft2-cols">
    <div>
-    <div class="ft2-brand"><span class="ft2-logo">MU</span><div><b>Muhammad Usman</b><small>UI/UX Designer · Pakistan</small></div></div>
+    <div class="ft2-brand"><span class="ft2-logo"><img class="me-pic" src="assets/images/profile.jpg" alt="Muhammad Usman" width="160" height="160"></span><div><b>Muhammad Usman</b><small>UI/UX Designer · Pakistan</small></div></div>
     <p class="ft2-about">I design clear, easy-to-use web and mobile products, from first research to developer handoff. Working with teams worldwide.</p>
    </div>
    <div>
@@ -7593,7 +7593,7 @@ document.querySelectorAll('a[href^="http"], a[href^="mailto:"]').forEach(a => {
       <span class="cv-plane">✉️</span>${cur}<p class="cv-cap">Send me an email about your role or project.</p></div>
     <div class="cv-scene s2" data-d="2.0"><div class="cv-step"><b>02</b><span>I reply</span></div>
       <div class="cv-win"><div class="cv-bar"><i></i><i></i><i></i><b>Inbox</b></div>
-        <div class="cv-mail new"><span class="av">MU</span><div><b>Muhammad Usman</b><p>Re: Let’s build our product · Happy to help! Here’s how we can start…</p></div></div>
+        <div class="cv-mail new"><span class="av"><img class="me-pic" src="assets/images/profile.jpg" alt="Muhammad Usman" width="160" height="160"></span><div><b>Muhammad Usman</b><p>Re: Let’s build our product · Happy to help! Here’s how we can start…</p></div></div>
         <div class="cv-mail"><span class="av"></span><div><b>Weekly digest</b><p>Your summary for this week</p></div></div>
         <div class="cv-mail"><span class="av"></span><div><b>Team updates</b><p>Notes from Monday</p></div></div></div>
       <div class="cv-toast"><i>💬</i>New reply from Muhammad</div><p class="cv-cap">I reply personally with next steps.</p></div>
@@ -7893,6 +7893,17 @@ body.pd-lock{overflow:hidden}
   vids.forEach(v => { v.muted = true; io.observe(v); });
 })();
 </script>
+<style id="me-pic-styles">
+.me-pic{display:block;width:100%;height:100%;border-radius:50%;object-fit:cover;object-position:50% 30%}
+#nav .logo-mark{padding:2px;overflow:visible}
+#nav .logo-mark .me-pic{position:relative;z-index:1}
+.bx-av{overflow:visible;padding:3px}
+.bx-av .me-pic{position:relative;z-index:0}
+.bx-av i{z-index:1}
+.ft2-logo{padding:0;overflow:hidden;background:#151229}
+.reference-brand span{overflow:hidden;padding:0}
+.cv-mail .av{overflow:hidden;padding:0}
+</style>
 <style id="heading-gradient">
 html[data-theme=dark] .hg-w{background-image:linear-gradient(90deg,#a69cff,#ff7ad9 55%,#62c7ff);-webkit-background-clip:text!important;background-clip:text!important;color:transparent!important;-webkit-text-fill-color:transparent}
 </style>
