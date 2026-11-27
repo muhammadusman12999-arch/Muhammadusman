@@ -4360,6 +4360,27 @@ footer .socials a:hover{color:#a69cff}
 .badge-focusee{right:3%!important;top:50%!important;left:auto!important;bottom:auto!important;margin-top:-24px;animation-delay:-.9s}
 @media (max-width:700px){.badge-figma-agent{left:3%!important;top:31%!important;bottom:auto!important;margin-top:0}.badge-focusee{right:3%!important;top:auto!important;bottom:34%!important;margin-top:0}}
 </style>
+<style id="ux-tools-more">
+.tool-badge .canva-mark,.tool-badge .capcut-mark,.tool-badge .stitch-mark{background:linear-gradient(135deg,#6b5cff,#8d7cff)!important;color:#fff!important}
+.tool-badge .tool-mark svg{width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2.4;stroke-linecap:round;stroke-linejoin:round}
+.tool-badge .stitch-mark svg{stroke-width:2}
+.badge-canva{left:6%!important;top:5%!important;right:auto!important;bottom:auto!important;animation-delay:-2.4s}
+.badge-capcut{right:6%!important;top:5%!important;left:auto!important;bottom:auto!important;animation-delay:-.6s}
+.badge-stitch{left:50%!important;bottom:7%!important;top:auto!important;right:auto!important;margin-left:-80px;animation-delay:-1.9s}
+@media (min-width:901px){.badge-figjam{left:19%!important}.badge-sketch{right:19%!important}}
+@media (max-width:1000px){
+  .toolkit-3d-stage{display:grid!important;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;padding:14px 14px 18px;min-height:0!important}
+  .toolkit-3d-stage .toolkit-orbit{display:none!important}
+  .toolkit-core{position:relative!important;grid-column:1/-1;left:auto!important;top:auto!important;transform:none!important;margin:0 auto 4px;width:230px!important;height:230px!important}
+  .toolkit-core canvas{width:220px!important;height:220px!important}
+  .tool-badge{position:relative!important;inset:auto!important;margin:0!important;transform:none!important;animation:none!important;min-width:0!important;width:auto}
+  .tool-badge strong{white-space:nowrap}
+  .toolkit-core{order:-1}
+  .toolkit-3d-stage::before{height:auto!important;width:auto!important;inset:8px!important;transform:none!important}
+}
+@media (max-width:700px){.toolkit-3d-stage{grid-template-columns:1fr 1fr!important}.badge-stitch{grid-column:1/-1;justify-self:center;width:calc(50% - 5px)}}
+</style>
+
 <style id="ux-svc-groups">
 .ux-svc-tabs{display:inline-flex;gap:4px;margin-top:36px;padding:5px;border-radius:999px;background:#f1eff9;border:1px solid #e6e2f5;flex-wrap:wrap}
 .ux-svc-tab{display:inline-flex;align-items:center;gap:8px;padding:11px 18px;border:0;border-radius:999px;background:transparent;color:#55526f;font:700 14px/1 "DM Sans","DM Sans Fallback",sans-serif;cursor:pointer;transition:all .35s}
@@ -5017,6 +5038,19 @@ footer .socials a:hover{color:#a69cff}
         <span><strong>FocuSee</strong><small>User Guide Videos</small></span>
       </div>
 
+      <div class="tool-badge badge-canva">
+        <span class="tool-mark canva-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.6 8.1A6 6 0 1 0 17 15.6"/></svg></span>
+        <span><strong>Canva</strong><small>Social & Marketing</small></span>
+      </div>
+      <div class="tool-badge badge-capcut">
+        <span class="tool-mark capcut-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 6.5l9 5.5-9 5.5M20 6.5l-9 5.5 9 5.5"/></svg></span>
+        <span><strong>CapCut</strong><small>Video Editing</small></span>
+      </div>
+      <div class="tool-badge badge-stitch">
+        <span class="tool-mark stitch-mark"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="5" width="16" height="14" rx="3"/><path d="M8 9.5h8M8 12h5M8 14.5h6" stroke-dasharray="2 1.6"/></svg></span>
+        <span><strong>Google Stitch</strong><small>AI UI Generation</small></span>
+      </div>
+
       <div class="toolkit-core">
         <div class="core-label">FIGMA<br><span>●</span></div>
         <canvas id="toolkit3dCanvas" aria-hidden="true"></canvas>
@@ -5028,6 +5062,29 @@ footer .socials a:hover{color:#a69cff}
 </section>
 
 
+
+<script id="tools-ring-script">
+(() => {
+  const stage = document.querySelector('.toolkit-3d-stage'); if (!stage) return;
+  const order = ['figma','figma-make','framer','claude','focusee','illustrator','sketch','stitch','figjam','canva','capcut','figma-agent','figma-motion'];
+  const els = order.map(k => stage.querySelector('.badge-' + k)).filter(Boolean);
+  const put = (el, p) => Object.entries(p).forEach(([k, v]) => el.style.setProperty(k, v, 'important'));
+  const layout = () => {
+    if (innerWidth <= 1000) { els.forEach(el => ['left','top','right','bottom','margin'].forEach(k => el.style.removeProperty(k))); return; }
+    const W = stage.clientWidth, H = stage.clientHeight, n = els.length;
+    const maxW = Math.max(...els.map(e => e.offsetWidth));
+    const rx = W / 2 - maxW / 2 - 28, ry = H / 2 - 52;
+    els.forEach((el, i) => {
+      const a = -Math.PI / 2 + i * 2 * Math.PI / n;
+      const x = W / 2 + rx * Math.cos(a) - el.offsetWidth / 2, y = H / 2 + ry * Math.sin(a) - el.offsetHeight / 2;
+      put(el, { left: x + 'px', top: y + 'px', right: 'auto', bottom: 'auto', margin: '0' });
+      el.style.animationDelay = (-i * 0.4) + 's';
+    });
+  };
+  layout(); addEventListener('resize', layout);
+  if (document.fonts) document.fonts.ready.then(layout);
+})();
+</script>
 
 <section class="services-section premium-services compact-services" id="services">
   <div class="container">
