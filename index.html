@@ -4600,6 +4600,7 @@ footer .socials a:hover{color:#a69cff}
 .s6.on .cv-chart i{animation:cv-h .5s cubic-bezier(.16,1,.3,1) forwards!important;animation-delay:calc(.45s + var(--i)*.08s)!important}
 .s6.on .cv-conf i{animation:cv-fall 1.5s ease-in forwards!important;animation-delay:calc(.3s + var(--d))!important}
 </style>
+<script id="theme-init">try{var t=localStorage.getItem("mu-theme");if(t==="dark")document.documentElement.setAttribute("data-theme","dark");}catch(e){}</script>
 </head>
 <body>
 <div class="cursor-dot"></div><div class="cursor-ring"></div>
@@ -4621,6 +4622,7 @@ footer .socials a:hover{color:#a69cff}
 </div>
 <div class="nav-right">
     <span class="nav-status"><i></i> Available</span>
+    <button type="button" class="theme-tg" id="themeTg" aria-label="Switch to dark mode"><svg class="moon" viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg><svg class="sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg></button>
     <a class="nav-contact" href="mailto:muhammadusman12999@gmail.com">Let's talk <span>↗</span></a>
    </div>
    <button class="menu" id="menu">☰</button>
@@ -7881,6 +7883,149 @@ body.pd-lock{overflow:hidden}
     if (e.isIntersecting) { if (!v.src) v.src = v.dataset.src; const p = v.play(); if (p && p.catch) p.catch(() => {}); } else v.pause();
   }), { threshold: .35 });
   vids.forEach(v => { v.muted = true; io.observe(v); });
+})();
+</script>
+<style id="theme-dark">
+/* ===== Dark theme ===== */
+.theme-tg{position:relative;width:42px;height:42px;border-radius:50%;border:1px solid rgba(21,18,41,.12);background:#fff;color:#151229;display:grid;place-items:center;cursor:pointer;flex:none;transition:background .3s,border-color .3s,color .3s,transform .4s cubic-bezier(.16,1,.3,1)}
+.theme-tg:hover{transform:rotate(-15deg);border-color:#6758ff}
+.theme-tg svg{position:absolute;inset:0;margin:auto;width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:opacity .35s,transform .5s cubic-bezier(.16,1,.3,1)}
+.theme-tg .sun{opacity:0;transform:rotate(-90deg) scale(.5)}
+html[data-theme=dark] .theme-tg{background:#1c1936;border-color:rgba(255,255,255,.14);color:#ffd96a}
+html[data-theme=dark] .theme-tg .sun{opacity:1;transform:none}
+html[data-theme=dark] .theme-tg .moon{opacity:0;transform:rotate(90deg) scale(.5)}
+
+html[data-theme=dark]{--bg:#0b0a16;--paper:#15132a;--ink:#ecebf7;--muted:#a3a0bf;--line:rgba(255,255,255,.1);--shadow:0 25px 70px rgba(0,0,0,.4);color-scheme:dark}
+html[data-theme=dark] body{background:#0b0a16!important;color:#ecebf7}
+html[data-theme=dark] h1,html[data-theme=dark] h2,html[data-theme=dark] h3,html[data-theme=dark] h4{color:#f4f3fb}
+html[data-theme=dark] p{color:#b6b3cf}
+
+/* nav */
+html[data-theme=dark] .nav.premium-nav,html[data-theme=dark] .premium-nav{background:rgba(18,16,36,.82)!important;border-color:rgba(255,255,255,.1)!important;box-shadow:0 10px 40px rgba(0,0,0,.4)!important}
+html[data-theme=dark] .nav-links{background:rgba(255,255,255,.05)!important;border-color:rgba(255,255,255,.08)!important}
+html[data-theme=dark] .nav-links a{color:#c9c6e4!important}
+html[data-theme=dark] .nav-links a:hover{color:#fff!important}
+html[data-theme=dark] .logo-copy b{color:#fff!important}
+html[data-theme=dark] .logo-copy small{color:#a3a0bf!important}
+html[data-theme=dark] .nav-status{background:rgba(47,214,138,.1)!important;border-color:rgba(47,214,138,.25)!important;color:#8df4b1!important}
+html[data-theme=dark] .nav-contact{background:#fff!important;color:#151229!important}
+html[data-theme=dark] .menu{background:#1c1936!important;color:#fff!important}
+
+/* hero */
+html[data-theme=dark] .hero,html[data-theme=dark] .reference-hero{background:#0b0a16!important}
+html[data-theme=dark] .ref-btn.ref-secondary{background:#1c1936!important;color:#fff!important;border-color:rgba(255,255,255,.16)!important}
+html[data-theme=dark] .photo-spotlight,html[data-theme=dark] .photo-light-sweep{opacity:.25}
+
+/* marquee / strips */
+html[data-theme=dark] .tools-marquee,html[data-theme=dark] .signature-strip{background:#0f0d1f!important;border-color:rgba(255,255,255,.08)!important}
+html[data-theme=dark] .tools-marquee *,html[data-theme=dark] .signature-strip *{color:#c9c6e4!important;border-color:rgba(255,255,255,.1)!important}
+
+/* live projects */
+html[data-theme=dark] .wp-card{background:#15132a!important;border-color:rgba(255,255,255,.09)!important;box-shadow:0 20px 50px rgba(0,0,0,.35)!important}
+html[data-theme=dark] .wp-card *{border-color:rgba(255,255,255,.09)}
+html[data-theme=dark] .wp-result{background:#1c1936!important;color:#ecebf7!important}
+html[data-theme=dark] .wp-card span{background-color:transparent}
+
+/* behance */
+html[data-theme=dark] body #design-explorations.bx,html[data-theme=dark] body #about,html[data-theme=dark] body #tools,html[data-theme=dark] body #services,html[data-theme=dark] body #kind-words,html[data-theme=dark] body #work,html[data-theme=dark] body #home{background:#0b0a16!important;background-image:none!important}
+html[data-theme=dark] .bx-sub{color:#a9a6c9!important}
+html[data-theme=dark] .bx-profile{background:#15132a!important;border-color:rgba(255,255,255,.1)!important;box-shadow:none!important}
+html[data-theme=dark] .bx-pinfo b,html[data-theme=dark] .bx-pstats b{color:#fff!important}
+html[data-theme=dark] .bx-seg{background:#15132a!important;border-color:rgba(255,255,255,.08)!important}
+html[data-theme=dark] .bx-segb{color:#c9c6e4!important}
+html[data-theme=dark] .bx-segb.on{background:#fff!important;color:#151229!important}
+html[data-theme=dark] .bx-segb b{background:rgba(255,255,255,.1)!important;color:#fff!important}
+html[data-theme=dark] .bx-segb.on b{background:#6758ff!important}
+html[data-theme=dark] .bx-shot{background:#15132a!important;box-shadow:0 14px 40px rgba(0,0,0,.35)!important}
+html[data-theme=dark] .bx-cap h3{color:#f4f3fb!important}
+html[data-theme=dark] .bx-cap p{color:#a3a0bf!important}
+html[data-theme=dark] .bx-arr{border-color:rgba(255,255,255,.16)!important;color:#fff!important}
+html[data-theme=dark] .bx-morebtn{background:transparent!important;border-color:rgba(255,255,255,.3)!important;color:#fff!important}
+html[data-theme=dark] .bx-morebtn b{background:#fff!important;color:#151229!important}
+html[data-theme=dark] .bx-allbtn{background:#fff!important;border-color:#fff!important;color:#151229!important}
+
+/* about */
+html[data-theme=dark] .designer-about{background:#0b0a16!important}
+html[data-theme=dark] .ux-board,html[data-theme=dark] .ux-board-canvas,html[data-theme=dark] .ux-untangle{background:#15132a!important;border-color:rgba(255,255,255,.09)!important}
+html[data-theme=dark] .ux-ut-toggle{background:#1c1936!important;color:#fff!important;border-color:rgba(255,255,255,.14)!important}
+html[data-theme=dark] .ux-proc-ic{background:#1c1936!important}
+html[data-theme=dark] .ux-act{background:#1c1936!important}
+
+/* tools head (panel already dark) */
+html[data-theme=dark] .tk2{border:1px solid rgba(255,255,255,.08)}
+
+/* services */
+html[data-theme=dark] .sv2-tabs{background:#15132a!important;border-color:rgba(255,255,255,.08)!important}
+html[data-theme=dark] .sv2-tab{color:#c9c6e4!important}
+html[data-theme=dark] .sv2-tab.on{background:#fff!important;color:#151229!important}
+html[data-theme=dark] .sv2-tab b{background:rgba(255,255,255,.1)!important;color:#fff!important}
+html[data-theme=dark] .sv2-tab.on b{background:#6758ff!important}
+html[data-theme=dark] .sv2-card{background:#15132a!important;border-color:rgba(255,255,255,.08)!important;box-shadow:none!important}
+html[data-theme=dark] .sv2-card h3{color:#f4f3fb!important}
+html[data-theme=dark] .sv2-card p{color:#a9a6c9!important}
+html[data-theme=dark] .sv2-num{background:rgba(103,88,255,.18)!important;color:#b9b0ff!important}
+html[data-theme=dark] .sv2-card:hover{background:#221d4a!important;border-color:rgba(166,156,255,.4)!important}
+
+/* kind words */
+html[data-theme=dark] .kw-badge{background:#15132a!important;border-color:rgba(255,255,255,.1)!important;color:#fff!important;box-shadow:none!important}
+html[data-theme=dark] .kw-card:not(.kw-feat){background:#15132a!important;border-color:rgba(255,255,255,.08)!important;box-shadow:none!important}
+html[data-theme=dark] .kw-card:not(.kw-feat) blockquote{color:#c9c6e4!important}
+html[data-theme=dark] .kw-card:not(.kw-feat) blockquote mark{color:#fff!important}
+html[data-theme=dark] .kw-card:not(.kw-feat) .kw-who{border-color:rgba(255,255,255,.08)!important}
+html[data-theme=dark] .kw-who b{color:#fff!important}
+html[data-theme=dark] .kw-card.kw-feat{background:linear-gradient(160deg,#2a2263,#151229)!important;border-color:rgba(166,156,255,.25)!important}
+
+/* footer */
+html[data-theme=dark] .ft2-card{border:1px solid rgba(255,255,255,.08)}
+html[data-theme=dark] .ft2-logo{background:#fff!important;color:#151229!important}
+html[data-theme=dark] .ft2-brand b,html[data-theme=dark] .ft2-cols ul a{color:#f4f3fb!important}
+html[data-theme=dark] .ft2-about{color:#a9a6c9!important}
+html[data-theme=dark] .ft2-soc i{background:rgba(103,88,255,.18)!important;color:#b9b0ff!important}
+
+/* drawers & panels */
+html[data-theme=dark] .pd,html[data-theme=dark] .bxp{background:#12102a!important;color:#ecebf7!important}
+html[data-theme=dark] .pd-top,html[data-theme=dark] .bxp-top{background:#12102a!important;border-color:rgba(255,255,255,.08)!important}
+html[data-theme=dark] .pd-btn,html[data-theme=dark] .bxp-btn{background:#1c1936!important;border-color:rgba(255,255,255,.12)!important;color:#fff!important}
+html[data-theme=dark] .pd-hero,html[data-theme=dark] .bxp-shot{background:#1c1936!important}
+html[data-theme=dark] .pd-body h2,html[data-theme=dark] .bxp-head h2{color:#fff!important}
+html[data-theme=dark] .pd-sum,html[data-theme=dark] .pd-sec p,html[data-theme=dark] .pd-list li{color:#c9c6e4!important}
+html[data-theme=dark] .pd-glance div,html[data-theme=dark] .bxp-end{background:#1c1936!important}
+html[data-theme=dark] .bxp-end span{color:#c9c6e4!important}
+html[data-theme=dark] .pd-chips span{border-color:rgba(255,255,255,.14)!important;color:#c9c6e4!important}
+html[data-theme=dark] .pd-a.primary,html[data-theme=dark] .bxp-be{background:#fff!important;color:#151229!important}
+html[data-theme=dark] .pd-a.ghost{background:transparent!important;color:#fff!important;border-color:rgba(255,255,255,.2)!important}
+
+html[data-theme=dark] main p{color:#b6b3cf!important}
+html[data-theme=dark] .wp-chips span{background:rgba(255,255,255,.06)!important;color:#d9d6f0!important;border-color:rgba(255,255,255,.12)!important}
+html[data-theme=dark] .wp-result span{color:#a9a6c9!important}
+html[data-theme=dark] .wp-card a{color:#ecebf7}
+html[data-theme=dark] main h2,html[data-theme=dark] main h2 .ux-wi,html[data-theme=dark] main h2 .ux-w{color:#f4f3fb!important}
+html[data-theme=dark] #about strong,html[data-theme=dark] #about b{color:#f4f3fb!important}
+html[data-theme=dark] #about svg text{fill:#c9c6e4!important}
+html[data-theme=dark] .about-bio-eyebrow span{background:rgba(255,255,255,.06)!important;color:#d9d6f0!important;border-color:rgba(255,255,255,.12)!important}
+html[data-theme=dark] body .ux-board .about-process-list li.ux-act{background:#221d4a!important;border-color:rgba(166,156,255,.35)!important;box-shadow:0 18px 40px rgba(0,0,0,.4)!important}
+html[data-theme=dark] body .ux-board .ux-bio .about-bio-eyebrow span{background:rgba(103,88,255,.14)!important;color:#c9c0ff!important;border-color:rgba(166,156,255,.3)!important}
+html[data-theme=dark] body .ux-ut-toggle i{background:#2a2550!important}
+html[data-theme=dark] body #home.hero::after{background:radial-gradient(circle,rgba(103,88,255,.28) 0%,rgba(103,88,255,0) 70%)!important;opacity:.8!important}
+html[data-theme=dark] body #home .reference-visual::before{background:radial-gradient(circle at 52% 46%,rgba(103,88,255,.22) 0%,rgba(103,88,255,0) 60%)!important}
+html[data-theme=dark] body #home .ux-aurora i{opacity:.18!important}
+html[data-theme=dark] body #home .photo-spotlight{opacity:.15!important}
+html[data-theme=dark] body #about .ux-board-canvas .about-bio-card > p,html[data-theme=dark] body #about .about-bio-card p{color:#f1f0fa!important}
+html.theme-anim,html.theme-anim *{transition:background-color .4s ease,border-color .4s ease,color .3s ease!important}
+</style>
+<script id="theme-toggle">
+(() => {
+  const b = document.getElementById("themeTg"); if (!b) return;
+  const root = document.documentElement;
+  const sync = () => { const d = root.getAttribute("data-theme") === "dark"; b.setAttribute("aria-label", d ? "Switch to light mode" : "Switch to dark mode"); b.setAttribute("aria-pressed", d); };
+  sync();
+  b.addEventListener("click", () => {
+    root.classList.add("theme-anim");
+    const d = root.getAttribute("data-theme") !== "dark";
+    if (d) root.setAttribute("data-theme", "dark"); else root.removeAttribute("data-theme");
+    try { localStorage.setItem("mu-theme", d ? "dark" : "light"); } catch (e) {}
+    sync(); setTimeout(() => root.classList.remove("theme-anim"), 500);
+  });
 })();
 </script>
 </body>
