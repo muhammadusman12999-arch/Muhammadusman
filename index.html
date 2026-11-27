@@ -5432,41 +5432,38 @@ footer .socials a:hover{color:#a69cff}
 
 
 <style id="kind-words-section">
-#kind-words{position:relative;padding:var(--ux-sec,60px) 0 calc(var(--ux-sec,60px) - 22px);overflow:hidden}
-#kind-words .kw-head{display:flex;align-items:end;justify-content:space-between;gap:24px;margin-bottom:16px}
+#kind-words{position:relative;padding:var(--ux-sec,60px) 0}
+#kind-words .kw-head{display:flex;align-items:flex-end;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:34px}
 #kind-words .kw-head h2{font-size:clamp(36px,4.4vw,56px);line-height:1.02;letter-spacing:-.06em}
-.kw-viewport{position:relative;overflow:hidden;padding:8px 0 22px;
-  -webkit-mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent);
-          mask-image:linear-gradient(90deg,transparent,#000 7%,#000 93%,transparent)}
-.kw-track{display:flex;width:max-content}
-.kw-track.kw-run{animation:kw-slide var(--kw-dur,70s) linear infinite}
-.kw-viewport:hover .kw-track,.kw-viewport:focus-within .kw-track{animation-play-state:paused}
-@keyframes kw-slide{to{transform:translateX(-50%)}}
-.kw-card{position:relative;flex:0 0 auto;width:min(420px,82vw);margin-right:18px;padding:26px 26px 22px;border:1px solid var(--line);border-radius:22px;background:#fff;
-  display:flex;flex-direction:column;box-shadow:0 10px 30px rgba(20,18,35,.04);
-  transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s cubic-bezier(.16,1,.3,1),border-color .5s}
-.kw-card:hover{transform:translateY(-4px);border-color:#d6d6d0;box-shadow:0 18px 40px rgba(20,18,35,.08)}
-.kw-card:before{content:"\201C";position:absolute;bottom:-46px;right:18px;font-family:Georgia,serif;font-size:92px;line-height:1;color:#151515;opacity:.05;transition:opacity .5s,transform .5s cubic-bezier(.16,1,.3,1)}
-.kw-card{overflow:hidden}.kw-card:hover:before{opacity:.09;transform:translateY(-3px)}
-.kw-quote{flex:1;font-size:14px;line-height:1.7;color:#3b3b3b}
-.kw-quote p+p{margin-top:10px}
-.kw-person{display:flex;align-items:center;gap:12px;margin-bottom:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
-.kw-avatar{flex:0 0 44px;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;font-family:"Space Grotesk","Space Grotesk Fallback",sans-serif;font-weight:700;font-size:14px;color:#fff;background:#151515}
-.kw-person b{display:block;font-family:"Space Grotesk","Space Grotesk Fallback",sans-serif;font-size:15px;letter-spacing:-.02em;color:var(--ink)}
-.kw-person small{display:block;font-size:11px;line-height:1.45;color:var(--muted)}
-.kw-person em{display:block;font-style:normal;font-size:10px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#9a9a94;margin-top:3px}
-.kw-li{margin-left:auto;flex:0 0 22px;width:22px;height:22px;border-radius:5px;border:1px solid var(--line);background:#fff;color:#8a8a84;display:grid;place-items:center;font:700 11px/1 Arial,sans-serif}
-@media (max-width:760px){
-  #kind-words .kw-head{display:block}
-  .kw-card{padding:22px 20px 18px}
-  .kw-quote{font-size:13px}
-}
-@media (prefers-reduced-motion:reduce){
-  .kw-track.kw-run{animation:none}
-  .kw-viewport{overflow-x:auto;-webkit-mask-image:none;mask-image:none;scroll-snap-type:x mandatory}
-  .kw-card{scroll-snap-align:start}
-  .kw-card[aria-hidden="true"]{display:none}
-}
+.kw-badge{display:inline-flex;align-items:center;gap:12px;padding:10px 18px 10px 10px;border-radius:999px;background:#fff;border:1px solid #e9e6f7;box-shadow:0 12px 30px rgba(40,30,110,.07);color:#151229;text-decoration:none;font:600 14px/1.2 "DM Sans","DM Sans Fallback",sans-serif;transition:border-color .25s,transform .35s cubic-bezier(.16,1,.3,1)}
+.kw-badge:hover{border-color:#0a66c2;transform:translateY(-2px)}
+.kw-stack{display:flex}
+.kw-stack i{width:30px;height:30px;border-radius:50%;display:grid;place-items:center;font:700 10px/1 "DM Sans","DM Sans Fallback",sans-serif;font-style:normal;color:#fff;border:2px solid #fff;margin-left:-8px}
+.kw-stack i:first-child{margin-left:0}
+.kw-badge small{display:block;color:#7a7794;font-weight:500;font-size:12px;margin-top:2px}
+.kw-grid{display:grid;grid-template-columns:1.15fr 1fr 1fr;grid-template-rows:auto auto;gap:18px}
+.kw-card{margin:0;min-width:0;position:relative;display:flex;flex-direction:column;justify-content:space-between;gap:26px;padding:28px;border-radius:26px;background:#fff;border:1px solid #ece9f7;box-shadow:0 14px 40px rgba(40,30,110,.06);transition:transform .5s cubic-bezier(.16,1,.3,1),box-shadow .5s,border-color .3s}
+.kw-card:hover{transform:translateY(-5px);border-color:color-mix(in srgb,var(--kc) 45%,#ece9f7);box-shadow:0 26px 60px color-mix(in srgb,var(--kc) 18%,transparent)}
+.kw-mark{display:block;width:34px;height:26px;color:var(--kc)}
+.kw-card blockquote{margin:16px 0 0;font:500 17px/1.6 "DM Sans","DM Sans Fallback",sans-serif;color:#2b2842;display:-webkit-box;-webkit-line-clamp:4;-webkit-box-orient:vertical;overflow:hidden}
+.kw-card blockquote mark{background:none;color:#151229;font-weight:700;box-shadow:inset 0 -.42em 0 color-mix(in srgb,var(--kc) 22%,transparent)}
+.kw-who{display:flex;align-items:center;gap:12px;padding-top:20px;border-top:1px solid #f0eef8}
+.kw-av{flex:none;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--kc);color:#fff;font:700 14px/1 "Space Grotesk","Space Grotesk Fallback",sans-serif}
+.kw-who div{min-width:0;flex:1}
+.kw-who b{display:block;font:700 15px/1.2 "Space Grotesk","Space Grotesk Fallback",sans-serif;color:#151229}
+.kw-who small{display:block;margin-top:3px;font:500 12.5px/1.35 "DM Sans","DM Sans Fallback",sans-serif;color:#7a7794}
+.kw-rel{flex:none;padding:6px 10px;border-radius:999px;background:color-mix(in srgb,var(--kc) 12%,#fff);color:color-mix(in srgb,var(--kc) 80%,#151229);font:700 11px/1 "DM Sans","DM Sans Fallback",sans-serif}
+.kw-card.kw-feat{grid-row:span 2;background:#151229;border-color:#151229;padding:36px;color:#fff}
+.kw-card.kw-feat blockquote{font:600 clamp(22px,2vw,28px)/1.4 "Space Grotesk","Space Grotesk Fallback",sans-serif;letter-spacing:-.02em;color:#fff;-webkit-line-clamp:unset;display:block;margin-top:26px}
+.kw-card.kw-feat blockquote mark{color:#fff;box-shadow:inset 0 -.38em 0 rgba(103,88,255,.55)}
+.kw-card.kw-feat .kw-mark{width:52px;height:40px;color:#8d7cff}
+.kw-card.kw-feat .kw-who{border-color:rgba(255,255,255,.12)}
+.kw-card.kw-feat .kw-who b{color:#fff}.kw-card.kw-feat .kw-who small{color:#a9a6c9;white-space:normal}
+.kw-card.kw-feat .kw-rel{background:rgba(255,255,255,.1);color:#fff}
+.kw-card.kw-feat::after{content:"";position:absolute;right:-80px;top:-80px;width:260px;height:260px;border-radius:50%;background:radial-gradient(circle,rgba(103,88,255,.45),transparent 70%);pointer-events:none}
+@media (max-width:1000px){.kw-grid{grid-template-columns:1fr 1fr}.kw-card.kw-feat{grid-column:1/-1;grid-row:auto}}
+@media (max-width:640px){.kw-grid{grid-template-columns:1fr;gap:14px}.kw-card{padding:22px;border-radius:22px}.kw-card.kw-feat{padding:26px}.kw-card blockquote{font-size:16px}}
+@media (prefers-reduced-motion:reduce){.kw-card,.kw-badge{transition:none}}
 </style>
 
 <section id="kind-words" aria-labelledby="kind-words-title">
@@ -5476,89 +5473,55 @@ footer .socials a:hover{color:#a69cff}
         <div class="kicker">Kind words</div>
         <h2 id="kind-words-title">What people say<br><span>about working with me.</span></h2>
       </div>
+      <a class="kw-badge" href="https://www.linkedin.com/in/muhammad-usman-9ab493245/" target="_blank" rel="noopener">
+        <span class="kw-stack" aria-hidden="true"><i style="background:#6758ff">HL</i><i style="background:#20b486">SB</i><i style="background:#ff7a45">AS</i><i style="background:#ff5fa2">MS</i><i style="background:#1fb6ff">MH</i></span>
+        <span>5 recommendations<small>Read them on LinkedIn</small></span>
+      </a>
     </div>
-  </div>
 
-  <div class="kw-viewport reveal">
-    <div class="kw-track">
-      <article class="kw-card">
-        <div class="kw-person">
-          <span class="kw-avatar">HL</span>
-          <div><b>Helen Latifi</b><small>MD · Founder · HealthTech &amp; AI Entrepreneur</small><em>Owner</em></div>
-          <span class="kw-li" aria-label="LinkedIn recommendation">in</span>
+    <div class="kw-grid">
+      <figure class="kw-card kw-feat reveal" style="--kc:#6758ff">
+        <div>
+          <svg class="kw-mark" viewBox="0 0 34 26" fill="currentColor" aria-hidden="true"><path d="M0 26V15.6C0 6.9 4.6 1.7 13 0l1.6 4C10 5.4 7.9 8 7.6 11.6H14V26H0zm20 0V15.6C20 6.9 24.6 1.7 33 0l1 4c-4.6 1.4-6.7 4-7 7.6H34V26H20z"/></svg>
+          <blockquote>I highly recommend M. Usman as a UX/UI Designer. He has <mark>a great eye for detail</mark> and a talent for turning complex ideas into simple, intuitive solutions.</blockquote>
         </div>
-        <div class="kw-quote">
-          <p>I highly recommend M. Usman as a UX/UI Designer.</p>
-          <p>What truly stands out is Usman's ability to combine strong design skills with a deep understanding of the user experience. He has a great eye for detail and a talent for turning complex ideas and requirements into simple, intuitive, and user-friendly solutions.</p>
-        </div>
-      </article>
+        <figcaption class="kw-who"><span class="kw-av">HL</span><div><b>Helen Latifi</b><small>MD · Founder · HealthTech &amp; AI Entrepreneur</small></div><span class="kw-rel">Owner</span></figcaption>
+      </figure>
 
-      <article class="kw-card">
-        <div class="kw-person">
-          <span class="kw-avatar">SB</span>
-          <div><b>Sajid Badi-uz-Zaman</b><small>Head of AI Department, TEO International</small><em>Same team</em></div>
-          <span class="kw-li" aria-label="LinkedIn recommendation">in</span>
+      <figure class="kw-card reveal" style="--kc:#20b486">
+        <div>
+          <svg class="kw-mark" viewBox="0 0 34 26" fill="currentColor" aria-hidden="true"><path d="M0 26V15.6C0 6.9 4.6 1.7 13 0l1.6 4C10 5.4 7.9 8 7.6 11.6H14V26H0zm20 0V15.6C20 6.9 24.6 1.7 33 0l1 4c-4.6 1.4-6.7 4-7 7.6H34V26H20z"/></svg>
+          <blockquote>Usman is <mark>creative, collaborative and solution-oriented</mark>. He takes ownership of his work.</blockquote>
         </div>
-        <div class="kw-quote">
-          <p>I had the opportunity to work with Usman, and I was impressed by his strong UI/UX design skills, attention to detail, and ability to understand user needs. He has a great talent for turning complex requirements into clean, intuitive, and user-friendly designs.</p>
-          <p>Usman is creative, collaborative, and solution-oriented. He takes ownership of his work, communicates well with the team, and consistently focuses on delivering high-quality results.</p>
-        </div>
-      </article>
-      <article class="kw-card">
-        <div class="kw-person">
-          <span class="kw-avatar">AS</span>
-          <div><b>Ahmad Shoaib</b><small>Senior Product Designer (UI/UX)</small><em>Senior colleague</em></div>
-          <span class="kw-li" aria-label="LinkedIn recommendation">in</span>
-        </div>
-        <div class="kw-quote">
-          <p>I had the pleasure of working with Usman and found him to be a talented, detail-oriented UI/UX Designer with a strong understanding of user experience. He is creative, collaborative, and receptive to feedback. His professionalism and commitment to quality make him a valuable team member. I highly recommend him to any organization seeking a skilled UI/UX Designer.</p>
-        </div>
-      </article>
+        <figcaption class="kw-who"><span class="kw-av">SB</span><div><b>Sajid Badi-uz-Zaman</b><small>Head of AI Department, TEO International</small></div><span class="kw-rel">Same team</span></figcaption>
+      </figure>
 
-      <article class="kw-card">
-        <div class="kw-person">
-          <span class="kw-avatar">MS</span>
-          <div><b>Maryam Shahzad</b><small>Product Manager @ Hone · Chapter Lead @ Slack</small><em>Different teams</em></div>
-          <span class="kw-li" aria-label="LinkedIn recommendation">in</span>
+      <figure class="kw-card reveal" style="--kc:#ff7a45">
+        <div>
+          <svg class="kw-mark" viewBox="0 0 34 26" fill="currentColor" aria-hidden="true"><path d="M0 26V15.6C0 6.9 4.6 1.7 13 0l1.6 4C10 5.4 7.9 8 7.6 11.6H14V26H0zm20 0V15.6C20 6.9 24.6 1.7 33 0l1 4c-4.6 1.4-6.7 4-7 7.6H34V26H20z"/></svg>
+          <blockquote>A talented, <mark>detail-oriented UI/UX Designer</mark> with a strong understanding of user experience, and receptive to feedback.</blockquote>
         </div>
-        <div class="kw-quote">
-          <p>I've worked with Usman both at TEO International and on projects outside of it, and he's the kind of designer every product team hopes to get. He doesn't just make screens look good. He thinks about how people will actually use them, and his designs hold up once they reach development and real users.</p>
-          <p>Working with him in different settings showed me he's consistent.</p>
-        </div>
-      </article>
+        <figcaption class="kw-who"><span class="kw-av">AS</span><div><b>Ahmad Shoaib</b><small>Senior Product Designer (UI/UX)</small></div><span class="kw-rel">Senior colleague</span></figcaption>
+      </figure>
 
-      <article class="kw-card">
-        <div class="kw-person">
-          <span class="kw-avatar">MH</span>
-          <div><b>Mr. Haseeb</b><small>Full Stack Agentic AI Engineer</small><em>Mentor</em></div>
-          <span class="kw-li" aria-label="LinkedIn recommendation">in</span>
+      <figure class="kw-card reveal" style="--kc:#ff5fa2">
+        <div>
+          <svg class="kw-mark" viewBox="0 0 34 26" fill="currentColor" aria-hidden="true"><path d="M0 26V15.6C0 6.9 4.6 1.7 13 0l1.6 4C10 5.4 7.9 8 7.6 11.6H14V26H0zm20 0V15.6C20 6.9 24.6 1.7 33 0l1 4c-4.6 1.4-6.7 4-7 7.6H34V26H20z"/></svg>
+          <blockquote>He's <mark>the kind of designer every product team hopes to get</mark>. He thinks about how people will actually use his screens.</blockquote>
         </div>
-        <div class="kw-quote">
-          <p>I've had the opportunity to connect with Muhammad Usman professionally and have always found him to be a respectful, professional, and approachable person. He communicates clearly, maintains a positive attitude, and shows a genuine commitment to his professional growth.</p>
-          <p>I would happily recommend Muhammad to anyone looking for a dedicated and professional individual.</p>
+        <figcaption class="kw-who"><span class="kw-av">MS</span><div><b>Maryam Shahzad</b><small>Product Manager @ Hone · Chapter Lead @ Slack</small></div><span class="kw-rel">Different teams</span></figcaption>
+      </figure>
+
+      <figure class="kw-card reveal" style="--kc:#1fb6ff">
+        <div>
+          <svg class="kw-mark" viewBox="0 0 34 26" fill="currentColor" aria-hidden="true"><path d="M0 26V15.6C0 6.9 4.6 1.7 13 0l1.6 4C10 5.4 7.9 8 7.6 11.6H14V26H0zm20 0V15.6C20 6.9 24.6 1.7 33 0l1 4c-4.6 1.4-6.7 4-7 7.6H34V26H20z"/></svg>
+          <blockquote>Respectful, professional and approachable. He <mark>communicates clearly</mark> and shows a genuine commitment to his growth.</blockquote>
         </div>
-      </article>
+        <figcaption class="kw-who"><span class="kw-av">MH</span><div><b>Mr. Haseeb</b><small>Full Stack Agentic AI Engineer</small></div><span class="kw-rel">Mentor</span></figcaption>
+      </figure>
     </div>
   </div>
 </section>
-
-<script>
-(() => {
-  const track = document.querySelector('#kind-words .kw-track');
-  if (!track) return;
-  // Duplicate the cards once so the slide loops seamlessly; the copies are hidden from screen readers.
-  [...track.children].forEach(card => {
-    const copy = card.cloneNode(true);
-    copy.setAttribute('aria-hidden', 'true');
-    track.appendChild(copy);
-  });
-  // Keep the pace steady (about 40px per second) whatever the screen width.
-  const setSpeed = () => track.style.setProperty('--kw-dur', Math.max(30, track.scrollWidth / 2 / 40) + 's');
-  setSpeed();
-  addEventListener('resize', setSpeed, { passive: true });
-  track.classList.add('kw-run');
-})();
-</script>
 
 </main>
 
